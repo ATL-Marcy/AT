@@ -5,27 +5,12 @@ const client_secret = config.trevonSecertClientId
 // console.log(clientId)
 
 
-// function requestAuthorization(){
-//     const AUTHORIZE = "https://accounts.spotify.com/authorize"
-//     const client_id = document.getElementById("clientid")
-//     const client_secret = document.getElementById("secretid")
-//     localStorage.setItem("clientid", client_id)
-
-//     let url = AUTHORIZE;
-//     url += `?client_id=` + clientId;
-//     url += "&response_type=code" 
-//     url += "&redirect_uri=" + encodeURI(redirect_uri)
-//     url += "&show_dialog=true"
-//     url += "user-read-private user-read-user-top-read user-read-private playlist-modify-public playlist-modify-private user-read-playback-state user-modify-playback-state user-read-birthdate user-read-email"
-//     window.location.href = url;
-    
-// }
 
 
 
 
 //======Obtains parameters from the hash of the URL========
-   
+  
 function getHashParams() {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -68,6 +53,7 @@ function getHashParams() {
     document.getElementById('button').addEventListener('click', function()  {
       
       const redirect_uri = `http://127.0.0.1:5500/AT/index.html`; // Your redirect uri
+     
 
       var state = generateRandomString(16);
 
