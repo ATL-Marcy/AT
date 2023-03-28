@@ -1,11 +1,11 @@
 body{
     font-family: "Open Sans", sans-serif;
-    background-color: #7a0f6d;
+    background: linear-gradient(to right, #9a08c0 20%, #a01077 80%);
     
 }
 
-.title{
-   color: #7a0f6d;
+#title{
+    background: linear-gradient(to right, #9a08c0 20%, #a01077 80%);
 }
 .mission{
     color: #d66aff;
@@ -27,12 +27,12 @@ body{
 }
 
 .play{
-    color:#180116;
+    color:#08a1b8;
 
 }
 
-._23dQlGcykBItKqWHwK2TIH{
-    color: #d21f92;
+#reset{
+    color: #91206a;
     font-family: Source Sans Pro, sans-serif;
     font-size:14px;
     cursor: pointer;
@@ -54,5 +54,23 @@ hr{
     height: 1px;
     border:#180116
     color: black;
+
+}
+
+#search-bar{
+    font-family: Helvetica Neue,Helvetica,sans-serif;
+    font-weight: 880;
+    height: 40px;
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    padding: 9px 15px 10px 10px;
+    border-radius: 20px;
+    color: #191919;
+    font-size: 13px;
+    text-decoration: none;
+    transition: box-shadow;
+    box-sizing: border-box;
+
 
 }
