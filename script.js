@@ -6,9 +6,10 @@ const secertClientId = config.trevonSecertClientId
 const amandaClientId= config.amandaClientId
 const amandaSecretClientId = config.amandaSecretClientId
 
+//HTML ELEMENTS=====================================
+const search = document.querySelector(".search")
 
-
-
+console.log(search)
 
 
 
@@ -118,19 +119,20 @@ const fetchFrom = async function (url){
 }
 //============================================
 
-
+const artistName = "Rihanna"
 const spotifyUrl = 'https://api.spotify.com/v1/audio-features/11dFghVXANMlKmJXsNCbNl'
 const artistUrl = 'https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl'
-const urll = `https://api.spotify.com/v1/artists?ids=2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6`
+const searchUrl = `https://api.spotify.com/v1/search?query=${artistName}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`
 
-
-async function search(){
-    const data = await fetchFrom(spotifyUrl)
-    const name = data.acousticness
-    console.log(data)
-    console.log(name)
+async function dataFetch(){
+    const dataFeature = await fetchFrom(spotifyUrl)
+    const dataSearch = await fetchFrom(searchUrl)
+    const acousticness = dataFeature.acousticness
+    console.log('data features:',dataFeature)
+    console.log("acousticness", acousticness)
+    console.log(dataSearch)
 }
-search()
+dataFetch()
 
 
 
