@@ -1,11 +1,15 @@
 import config from "./apiKey.js"
+//Trevon Client Id==================================
+const clientId = config.trevonClientId 
+const secertClientId = config.trevonSecertClientId
+//Amanda's Client Id================================
+const amandaClientId= config.amandaClientId
+const amandaSecretClientId = config.amandaSecretClientId
 
-const clientId = config.trevonClientId //Trevon Token
-const client_secret = config.trevonSecertClientId
-// console.log(clientId)
+//HTML ELEMENTS=====================================
+const search = document.querySelector(".search")
 
-
-
+console.log(search)
 
 
 
@@ -50,7 +54,7 @@ function getHashParams() {
   //     oauthPlaceholder = document.getElementById('oauth');
 
 
-    document.getElementById('button').addEventListener('click', function()  {
+    document.getElementById('search-bar').addEventListener('click', function()  {
       
       const redirect_uri = `http://127.0.0.1:5500/AT/index.html`; // Your redirect uri
      
@@ -115,19 +119,20 @@ const fetchFrom = async function (url){
 }
 //============================================
 
-
+const artistName = "Rihanna"
 const spotifyUrl = 'https://api.spotify.com/v1/audio-features/11dFghVXANMlKmJXsNCbNl'
 const artistUrl = 'https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl'
-const urll = `https://api.spotify.com/v1/artists?ids=2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6`
+const searchUrl = `https://api.spotify.com/v1/search?query=${artistName}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`
 
-
-async function search(){
-    const data = await fetchFrom(spotifyUrl)
-    const name = data.acousticness
-    console.log(data)
-    console.log(name)
+async function dataFetch(){
+    const dataFeature = await fetchFrom(spotifyUrl)
+    const dataSearch = await fetchFrom(searchUrl)
+    const acousticness = dataFeature.acousticness
+    console.log('data features:',dataFeature)
+    console.log("acousticness", acousticness)
+    console.log(dataSearch)
 }
-search()
+dataFetch()
 
 
 
