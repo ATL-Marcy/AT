@@ -20,10 +20,10 @@ body{
   background:transparent;
   font-size: 20px;
   line-height: 40px;
-  display:flex;
-  justify-content: space-between;
+  
   border:none;
   color:white;
+  
 }
 .search::placeholder{
   color: #b095bd;
@@ -76,8 +76,8 @@ hr{
   height: 1px;
 }
 
-span{
-  color: white;
+.spotify-connect{
+  color: black;
 }
 #search-bar{
   font-family: Helvetica Neue,Helvetica,sans-serif;
@@ -93,7 +93,7 @@ span{
   text-decoration: none;
   transition: box-shadow;
   box-sizing: border-box;
-
+  cursor:pointer
 
 }
 
@@ -115,6 +115,7 @@ ul {
     flex-direction: column;
     overflow: hidden; 
     padding:10px;
+    cursor:pointer
   }
 
   a:link {
@@ -157,6 +158,7 @@ ul {
     margin:0 10px ;
     height: 20px;
     width: 50px;
+    cursor:pointer
   }
 
   .switch:after{
@@ -176,4 +178,7 @@ ul {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
+  }
+  .artists,.tracks {
+    color:white;
   }
