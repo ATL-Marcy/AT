@@ -1,21 +1,32 @@
-body{
-    font-family: "Open Sans", sans-serif;
-    background: linear-gradient(to right, #9a08c0 20%, #a01077 80%);
-    
+* {
+    box-sizing:border-box;
 }
 
+body{
+    font-family: "Open Sans", sans-serif;
+    background-color: #110915;
+}
+
+
+
 #title{
-    background: linear-gradient(to right, #9a08c0 20%, #a01077 80%);
+    background: linear-gradient(to right, #a01077 20%, #9a08c0 80%);
 }
 .mission{
     color: #d66aff;
 }
 
 .search{
-    color: #5d326d;
+    background:transparent;
     font-size: 20px;
     line-height: 40px; 
-
+    display:flex;
+    justify-content: space-between;
+    border:none;
+    color:white;
+}
+.search::placeholder{
+    color: #b095bd;
 }
 
 .artist{
@@ -27,18 +38,22 @@ body{
 }
 
 .play{
-    color:#08a1b8;
+    color: rgba(255,169,225,.6);
 
 }
 
 #reset{
-    color: #91206a;
+    color: #d21f92;
+    border-left-color: #86155e;
     font-family: Source Sans Pro, sans-serif;
     font-size:14px;
     cursor: pointer;
+    margin-right: 12px;
     padding-left: 10px;
+    border-left: 1px solid #400d54;
+    appearance: none;
     background: transparent;
-    padding-right: 0;
+   
 }
 
 .container{
@@ -52,9 +67,6 @@ body{
 
 hr{
     height: 1px;
-    border:#180116
-    color: black;
-
 }
 
 #search-bar{
@@ -73,4 +85,14 @@ hr{
     box-sizing: border-box;
 
 
+}
+
+#logo-btn {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.spotifyicon{
+    margin:3px;
 }
