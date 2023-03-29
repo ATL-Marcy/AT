@@ -8,8 +8,8 @@ const amandaSecretClientId = config.amandaSecretClientId
 
 //HTML ELEMENTS=====================================
 const search = document.querySelector(".search")
-
-console.log(search)
+const searchResults = document.querySelector("#results")
+console.log(searchResults)
 
 
 
@@ -98,6 +98,8 @@ function getHashParams() {
 //   })
 // })
 
+//==============================================
+
 
 //Helper Function for obtaining Spotify DATA=======================
 const fetchFrom = async function (url){
@@ -117,20 +119,28 @@ const fetchFrom = async function (url){
         console.log("There was an error.",error);
     }
 }
-//============================================
+//======================================================
 
-const artistName = "Rihanna"
+//function to remove all child nodes//====
+function removeAllChildNodes(node) { 
+  while(node.firstChild) {
+    node.removeChild(node.firstChild)
+  }
+}
+
+///======================================
+
 const spotifyUrl = 'https://api.spotify.com/v1/audio-features/11dFghVXANMlKmJXsNCbNl'
 const artistUrl = 'https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl'
-const searchUrl = `https://api.spotify.com/v1/search?query=${artistName}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`
+
 
 async function dataFetch(){
     const dataFeature = await fetchFrom(spotifyUrl)
-    const dataSearch = await fetchFrom(searchUrl)
+   
     const acousticness = dataFeature.acousticness
     console.log('data features:',dataFeature)
     console.log("acousticness", acousticness)
-    console.log(dataSearch)
+    
 }
 dataFetch()
 
@@ -138,6 +148,87 @@ dataFetch()
 
 
 
+//=====SEARCH ARTIST FUNCTION ====================
+const namesFromDOM = document.getElementsByClassName("name");
+
+search.addEventListener("keyup", (e) => {
+  let {value} = e.target;
+  console.log(value)
+  searchArtist(value)
+  // get user search input converted to lowercase
+  const searchQuery = value.toLowerCase();
+  
+  for (const nameElement of namesFromDOM) {
+      // store name text and convert to lowercase
+      let name = nameElement.textContent.toLowerCase();
+      
+      // compare current name to search input
+      if (name.includes(searchQuery)) {
+          // found name matching search, display it
+          nameElement.style.display = "block";
+      } else {
+          // no match, don't display name
+          nameElement.style.display = "none";
+      }
+  }
+});
+
+
+const searchUrl = `https://api.spotify.com/v1/search`
+
+async function searchArtist(value){
+  const dataSearch = await fetchFrom(searchUrl +`?query=${value}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`)
+//DATA FETCH ELEMENTS=======================
+
+ 
+  
+  console.log("search artist", dataSearch)
+ 
+  
+
+//=======================================
+
+removeAllChildNodes(searchResults)
+    for (let i = 0; i < 5; i++){
+      const url = dataSearch.artists.items[i].external_urls.spotify
+      const artistName = dataSearch.artists.items[i].name
+      const artistImg = dataSearch.artists.items[i].images[0].url
+      //====================
+      console.log("URL:",url)
+      console.log("Artist name", artistName)
+      console.log("Artist image", artistImg)
+      const list = document.createElement("li")
+      const anchor = document.createElement("a")
+      const img = document.createElement("img")
+      searchResults.appendChild(list)
+      list.appendChild(anchor)
+      list.appendChild(img)
+      anchor.innerText = artistName
+      anchor.href = url
+      img.src = artistImg
+    }
+}
+
+// listen for user events
+// async function searchStories(searchTerm){
+//   const data = await fetchFrom(searchUrl +`&q=${searchTerm}`)//interlope query string with serach term
+//   const docs = data.response.docs
+//   removeAllChildNodes(unOrderList)
+//     for (let i = 0; i < 10; i++){
+//       const articles = data.response.docs[i].abstract
+//       const url = data.response.docs[i].web_url
+//       const list = document.createElement("li")
+//       const anchor = document.createElement("a")
+//       searchList.appendChild(list)
+//       list.appendChild(anchor)
+//       anchor.href = url
+//       anchor.innerText = articles
+//     }
+// }
+
+// document.getElementById('reset').addEventListener('click', function() {
+//   searchArtist()
+// })
 
 //===================AUTHORIZATION=============================================
 // curl -X POST "https://accounts.spotify.com/api/token" \
