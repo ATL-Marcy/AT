@@ -9,7 +9,14 @@ const amandaSecretClientId = config.amandaSecretClientId
 //HTML ELEMENTS=====================================
 const search = document.querySelector(".search")
 const searchResults = document.querySelector("#results")
-console.log(searchResults)
+const artistToggle = document.querySelector(".checkbox")
+
+const searchID = document.getElementById("myText").placeholder
+console.log(search)
+
+
+
+
 
 
 

@@ -183,14 +183,20 @@ ul {
     width:16px;   
     height: 16px;   
     position: absolute;
-    left:1px;
+    left:2.5px;
     top: 2px;
   }
   input[type="checkbox"]{
     display:none
   }
-  input[type="checkbox"]:checked ~ .artists{
+  input[type="checkbox"]:checked ~ .artists,
+  input[type="checkbox"]:not(:checked) ~ .tracks{
     color:#ffa9e1;
+
+  }
+  input[type="checkbox"]:not(:checked) ~ .switch:after{
+    left:auto;
+    right: 3px;
   }
    
   .artists,.tracks {
