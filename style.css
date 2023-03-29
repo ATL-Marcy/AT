@@ -113,3 +113,32 @@ ul {
     border-radius: 50%;
     float: left;
   }
+
+.switch{
+    background: white;
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    margin:0 10px ;
+    height: 20px;
+    width: 50px;
+  }
+
+  .switch:after{
+    background: magenta;
+    border-radius: 50%;
+    content: ""; 
+    display: block;
+    width:15px;   
+    height: 15px;   
+    position: absolute;
+    top: 2px;
+  }
+
+  form{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
