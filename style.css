@@ -110,10 +110,24 @@ hr{
 }
 
 ul {
+    overflow: hidden; 
+    flex: 0;
+    appearance: none;
+    border: 0 none;
+    font-family: Source Sans Pro,sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 12px;
+    color: #86155e;
+    padding-left: 10px;
+    border-left: 1px solid #400d54;
+    background: transparent;
+    padding-right: 0;
+    background-color: rgba(64,13,84,.6);
+    transition: background-color .2s;
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    overflow: hidden; 
     padding:10px;
     cursor:pointer
   }
@@ -166,10 +180,23 @@ ul {
     border-radius: 50%;
     content: ""; 
     display: block;
-    width:15px;   
-    height: 15px;   
+    width:16px;   
+    height: 16px;   
     position: absolute;
+    left:1px;
     top: 2px;
+  }
+  input[type="checkbox"]{
+    display:none
+  }
+  input[type="checkbox"]:checked ~ .artists{
+    color:#ffa9e1;
+  }
+   
+  .artists,.tracks {
+    font-family: Source Sans Pro,sans-serif;
+    font-weight: 400;
+    color:rgba(255,169,225,.6);
   }
 
   form{
@@ -178,7 +205,4 @@ ul {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-  }
-  .artists,.tracks {
-    color:white;
   }
