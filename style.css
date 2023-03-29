@@ -1,48 +1,52 @@
 * {
     box-sizing:border-box;
-}
-
-body{
+ }
+ 
+ 
+ body{
     font-family: "Open Sans", sans-serif;
     background-color: #110915;
-}
-
-
-
-#title{
+ }
+ 
+ #title{
     background: linear-gradient(to right, #a01077 20%, #9a08c0 80%);
-}
-.mission{
+ }
+ .mission{
     color: #d66aff;
-}
-
-.search{
+ }
+ 
+ 
+ .search{
     background:transparent;
     font-size: 20px;
-    line-height: 40px; 
+    line-height: 40px;
     display:flex;
     justify-content: space-between;
     border:none;
     color:white;
-}
-.search::placeholder{
+ }
+ .search::placeholder{
     color: #b095bd;
-}
-
-.artist{
+ }
+ 
+ 
+ .artist{
     font-size: 14px;
     box-sizing: border-box;
     color: #ffa9e1;
     display:flex;
     justify-content: space-between;
-}
-
-.play{
+ }
+ 
+ 
+ .play{
     color: rgba(255,169,225,.6);
-
-}
-
-#reset{
+ 
+ 
+ }
+ 
+ 
+ #reset{
     color: #d21f92;
     border-left-color: #86155e;
     font-family: Source Sans Pro, sans-serif;
@@ -53,23 +57,26 @@ body{
     border-left: 1px solid #400d54;
     appearance: none;
     background: transparent;
-   
-}
-
-.container{
+  
+ }
+ 
+ 
+ .container{
     padding-top: 1rem!important;
     padding-bottom: 1rem!important;
-}
-.container{
+ }
+ .container{
     margin-top: 1.5rem!important;
     margin-bottom: 1.5rem!important;
-}
-
-hr{
+ }
+ 
+ 
+ hr{
     height: 1px;
-}
-
-#search-bar{
+ }
+ 
+ 
+ #search-bar{
     font-family: Helvetica Neue,Helvetica,sans-serif;
     font-weight: 880;
     height: 40px;
@@ -83,16 +90,19 @@ hr{
     text-decoration: none;
     transition: box-shadow;
     box-sizing: border-box;
+ 
 
-
-}
-
-#logo-btn {
+ }
+ 
+ 
+ #logo-btn {
     align-items: center;
     display: flex;
     justify-content: space-between;
-}
-
-.spotifyicon{
+ }
+ 
+ 
+ .spotifyicon{
     margin:3px;
-}
+ }
+ 
