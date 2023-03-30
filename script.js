@@ -140,7 +140,7 @@ function removeAllChildNodes(node) {
 
 const spotifyUrl = 'https://api.spotify.com/v1/audio-features/11dFghVXANMlKmJXsNCbNl'
 const artistUrl = 'https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl'
-
+const recommendationsUrl = "https://api.spotify.com/v1/recommendations"
 
 
 const getArtistTracksUrl = 'https://api.spotify.com/v1/tracks/'
@@ -162,7 +162,12 @@ async function getArtistTracks(){
 }
 getArtistTracks()
 
-
+async function getRecommendations(){
+  const recommendationsData = await fetchFrom (recommendationsUrl + `?seed_artists=4NHQUGzhtTLFvgF5SZesLK&country,classical&limit=5`)
+  console.log(recommendationsData)
+  console.log(recommendationsData.tracks[0].name)
+}
+getRecommendations()
 
 
 //=====SEARCH ARTIST FUNCTION ====================
