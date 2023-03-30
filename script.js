@@ -11,9 +11,22 @@ const search = document.querySelector(".search")
 const searchResults = document.querySelector("#results")
 const artistToggle = document.querySelector(".checkbox")
 
-const searchID = document.getElementById("myText").placeholder
-console.log(search)
 
+const inputElement = document.getElementById("input");
+let placeholder = inputElement.placeholder;
+const checkbox = document.querySelector("input[name=toggle]");
+console.log(placeholder)
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    inputElement.placeholder = "Search By Artist";
+    // console.log("Checkbox is checked..");
+  } else {
+    inputElement.placeholder = "Search By Track";
+    // console.log("Checkbox is not checked..");
+  }
+})
+localStorage.setItem("base_uri", window.location);
 
 
 
@@ -62,8 +75,8 @@ function getHashParams() {
 
 
     document.getElementById('search-bar').addEventListener('click', function()  {
-      
-      const redirect_uri = `http://127.0.0.1:5500/AT/index.html`; // Your redirect uri
+      const redirect_uri = localStorage.getItem("base_uri"); // Your redirect uri
+      // const redirect_uri = `http://127.0.0.1:5500/AT/index.html`; // Your redirect uri
      
 
       var state = generateRandomString(16);
@@ -139,7 +152,11 @@ function removeAllChildNodes(node) {
 
 const spotifyUrl = 'https://api.spotify.com/v1/audio-features/11dFghVXANMlKmJXsNCbNl'
 const artistUrl = 'https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl'
+const recommendationsUrl = "https://api.spotify.com/v1/recommendations"
 
+
+const getArtistTracksUrl = 'https://api.spotify.com/v1/tracks/'
+const id = "3TVXtAsR1Inumwj472S9r4" 
 
 async function dataFetch(){
     const dataFeature = await fetchFrom(spotifyUrl)
@@ -151,8 +168,18 @@ async function dataFetch(){
 }
 dataFetch()
 
+async function getArtistTracks(){
+  const trackData = await fetchFrom(getArtistTracksUrl + id)
+  console.log(trackData)
+}
+getArtistTracks()
 
-
+async function getRecommendations(){
+  const recommendationsData = await fetchFrom (recommendationsUrl + `?seed_artists=4NHQUGzhtTLFvgF5SZesLK&country,classical&limit=5`)
+  console.log(recommendationsData)
+  console.log(recommendationsData.tracks[0].name)
+}
+getRecommendations()
 
 
 //=====SEARCH ARTIST FUNCTION ====================
@@ -182,6 +209,19 @@ search.addEventListener("keyup", (e) => {
 
 
 const searchUrl = `https://api.spotify.com/v1/search`
+
+
+const paramss = new URLSearchParams({
+  q: 'track:love',
+  type: 'track',
+  limit: 10
+});
+async function tracks(){
+  
+  const tracks = await fetchFrom(`${searchUrl}?${paramss}`) 
+  console.log(tracks)
+}
+tracks()
 
 async function searchArtist(value){
   const dataSearch = await fetchFrom(searchUrl +`?query=${value}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`)
