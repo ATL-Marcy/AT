@@ -10,28 +10,15 @@ const amandaSecretClientId = config.amandaSecretClientId
 const search = document.querySelector(".search")
 const searchResults = document.querySelector("#results")
 const artistToggle = document.querySelector(".checkbox")
-
-
 const inputElement = document.getElementById("input");
 let placeholder = inputElement.placeholder;
 const checkbox = document.querySelector("input[name=toggle]");
-console.log(placeholder)
 
-checkbox.addEventListener('change', function() {
-  if (this.checked) {
-    inputElement.placeholder = "Search By Artist";
-    // console.log("Checkbox is checked..");
-  } else {
-    inputElement.placeholder = "Search By Track";
-    // console.log("Checkbox is not checked..");
-  }
-})
+checkbox.addEventListener('change', check)
+
+
+
 localStorage.setItem("base_uri", window.location);
-
-
-
-
-
 
 //======Obtains parameters from the hash of the URL========
   
@@ -216,66 +203,65 @@ const paramss = new URLSearchParams({
   type: 'track',
   limit: 10
 });
-async function tracks(){
+// async function tracks(){
   
-  const tracks = await fetchFrom(`${searchUrl}?${paramss}`) 
-  console.log(tracks)
-}
-tracks()
+//   const tracks = await fetchFrom(`${searchUrl}?${paramss}`) 
+//   console.log(tracks)
+// }
+// tracks()
 
 async function searchArtist(value){
+
   const dataSearch = await fetchFrom(searchUrl +`?query=${value}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`)
+  const dataTrack = await fetchFrom(searchUrl + `?query=${value}&type=track&offset=0&limit=5`)
+
 //DATA FETCH ELEMENTS=======================
 
  
-  
-  console.log("search artist", dataSearch)
- 
-  
+  console.log("tracks:",dataTrack)
+  console.log("tracks name:",dataTrack.tracks.items[0].album.external_urls.spotify)
 
 //=======================================
 
 removeAllChildNodes(searchResults)
     for (let i = 0; i < 5; i++){
-      const url = dataSearch.artists.items[i].external_urls.spotify
+      //Artists===========================================================
+      const artistUrl = dataSearch.artists.items[i].external_urls.spotify
       const artistName = dataSearch.artists.items[i].name
       const artistImg = dataSearch.artists.items[i].images[0].url
-      //====================
-      console.log("URL:",url)
-      console.log("Artist name", artistName)
-      console.log("Artist image", artistImg)
+      //Tracks============================================================
+      const trackUrl = dataTrack.tracks.items[i].album.external_urls.spotify
+      const trackName = dataTrack.tracks.items[i].name
+      const tracktImg = dataTrack.tracks.items[i].album.images[0].url
+      //=================================================================
+      // console.log("URL:",url)
+      // console.log("Artist name", artistName)
+      // console.log("Artist image", artistImg)
       const list = document.createElement("li")
       const anchor = document.createElement("a")
       const img = document.createElement("img")
+
       searchResults.appendChild(list)
       list.appendChild(anchor)
       list.appendChild(img)
       anchor.innerText = artistName
-      anchor.href = url
+      anchor.href = artistUrl
       img.src = artistImg
     }
 }
 
-// listen for user events
-// async function searchStories(searchTerm){
-//   const data = await fetchFrom(searchUrl +`&q=${searchTerm}`)//interlope query string with serach term
-//   const docs = data.response.docs
-//   removeAllChildNodes(unOrderList)
-//     for (let i = 0; i < 10; i++){
-//       const articles = data.response.docs[i].abstract
-//       const url = data.response.docs[i].web_url
-//       const list = document.createElement("li")
-//       const anchor = document.createElement("a")
-//       searchList.appendChild(list)
-//       list.appendChild(anchor)
-//       anchor.href = url
-//       anchor.innerText = articles
-//     }
-// }
+function check() {
+  if (this.checked) {
+    inputElement.placeholder = "Search By Artist";
+    console.log("checked")
+  } else {
+    inputElement.placeholder = "Search By Track";
+    console.log("not checked")
+  }
+}
 
-// document.getElementById('reset').addEventListener('click', function() {
-//   searchArtist()
-// })
+
+// searchArtist()
 
 //===================AUTHORIZATION=============================================
 // curl -X POST "https://accounts.spotify.com/api/token" \
