@@ -14,6 +14,7 @@ const artistToggle = document.querySelector(".checkbox")
 const searchID = document.getElementById("myText").placeholder
 console.log(search)
 
+localStorage.setItem("base_uri", window.location);
 
 
 
@@ -62,8 +63,8 @@ function getHashParams() {
 
 
     document.getElementById('search-bar').addEventListener('click', function()  {
-      
-      const redirect_uri = `http://127.0.0.1:5500/AT/index.html`; // Your redirect uri
+      const redirect_uri = localStorage.getItem("base_uri"); // Your redirect uri
+      // const redirect_uri = `http://127.0.0.1:5500/AT/index.html`; // Your redirect uri
      
 
       var state = generateRandomString(16);
