@@ -9,7 +9,10 @@ body{
 }
 
 #title{
-  background: linear-gradient(to right, #a01077 20%, #9a08c0 80%);
+  background: linear-gradient(to right, #a11077 20%, #9a08c0 80%);
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .mission{
   color: #d66aff;
