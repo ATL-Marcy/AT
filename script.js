@@ -142,6 +142,10 @@ const spotifyUrl = 'https://api.spotify.com/v1/audio-features/11dFghVXANMlKmJXsN
 const artistUrl = 'https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl'
 
 
+
+const getArtistTracksUrl = 'https://api.spotify.com/v1/tracks/'
+const id = "3TVXtAsR1Inumwj472S9r4" 
+
 async function dataFetch(){
     const dataFeature = await fetchFrom(spotifyUrl)
    
@@ -152,6 +156,11 @@ async function dataFetch(){
 }
 dataFetch()
 
+async function getArtistTracks(){
+  const trackData = await fetchFrom(getArtistTracksUrl + id)
+  console.log(trackData)
+}
+getArtistTracks()
 
 
 
@@ -183,6 +192,19 @@ search.addEventListener("keyup", (e) => {
 
 
 const searchUrl = `https://api.spotify.com/v1/search`
+
+
+const paramss = new URLSearchParams({
+  q: 'track:love',
+  type: 'track',
+  limit: 10
+});
+async function tracks(){
+  
+  const tracks = await fetchFrom(`${searchUrl}?${paramss}`) 
+  console.log(tracks)
+}
+tracks()
 
 async function searchArtist(value){
   const dataSearch = await fetchFrom(searchUrl +`?query=${value}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`)
