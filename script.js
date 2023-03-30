@@ -11,9 +11,21 @@ const search = document.querySelector(".search")
 const searchResults = document.querySelector("#results")
 const artistToggle = document.querySelector(".checkbox")
 
-const searchID = document.getElementById("myText").placeholder
-console.log(search)
 
+const inputElement = document.getElementById("input");
+let placeholder = inputElement.placeholder;
+const checkbox = document.querySelector("input[name=toggle]");
+console.log(placeholder)
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    inputElement.placeholder = "Search By Artist";
+    // console.log("Checkbox is checked..");
+  } else {
+    inputElement.placeholder = "Search By Track";
+    // console.log("Checkbox is not checked..");
+  }
+})
 localStorage.setItem("base_uri", window.location);
 
 
