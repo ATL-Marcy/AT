@@ -168,18 +168,25 @@ async function dataFetch(){
 }
 dataFetch()
 
-async function getArtistTracks(){
+/*async function getArtistTracks(){
   const trackData = await fetchFrom(getArtistTracksUrl + id)
   console.log(trackData)
 }
 getArtistTracks()
+*/
 
 async function getRecommendations(){
   const recommendationsData = await fetchFrom (recommendationsUrl + `?seed_artists=4NHQUGzhtTLFvgF5SZesLK&country,classical&limit=5`)
-  console.log(recommendationsData)
-  console.log(recommendationsData.tracks[0].name)
+  const songName = recommendationsData.tracks[0].name
+  const songsUrl = recommendationsData.tracks[0].external_urls.spotify
+
+  console.log("recommendations:",recommendationsData)
+  console.log(songName)
+  console.log(songsUrl)
 }
 getRecommendations()
+
+
 
 
 //=====SEARCH ARTIST FUNCTION ====================
