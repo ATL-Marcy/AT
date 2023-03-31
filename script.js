@@ -236,6 +236,7 @@ async function searchArtist(value){
 //=======================================
 
 removeAllChildNodes(searchResults)
+    //searchResults.styles.display = 'block
     for (let i = 0; i < 5; i++){
       const url = dataSearch.artists.items[i].external_urls.spotify
       const artistName = dataSearch.artists.items[i].name

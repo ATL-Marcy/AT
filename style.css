@@ -4,7 +4,7 @@
 
 
 body{
-  font-family: "Open Sans", sans-serif;
+  font-family: Source Sans Pro,sans-serif;
   background-color: #110915;
 }
 
@@ -13,9 +13,28 @@ body{
   display:flex;
   align-items: center;
   justify-content: space-between;
+  font-weight: 550;
+  
 }
+
 .mission{
-  color: #d66aff;
+  color: #d56aff;
+  font-size: 40px;
+  line-height: 50px;
+  font-family: Barlow,sans-serif;
+  width: 13em;
+  font-weight: 550;
+}
+
+.page-divider {
+  background-color: #a11077;
+  height: 1px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.bottom p {
+  margin: 0;
 }
 
 
@@ -23,9 +42,9 @@ body{
   background:transparent;
   font-size: 20px;
   line-height: 40px;
-  
   border:none;
-  color:white;
+  color:#f1cfff;
+  padding: 0 10px 0 0;
   
 }
 .search::placeholder{
@@ -35,6 +54,7 @@ body{
 
 .artist{
   font-size: 14px;
+  font-weight:600;
   box-sizing: border-box;
   color: #ffa9e1;
   display:flex;
@@ -48,17 +68,20 @@ body{
 
 }
 
+#results {
+
+}
+
 
 #reset{
   color: #d21f92;
-  border-left-color: #86155e;
   border: 0 none;
   font-family: Source Sans Pro, sans-serif;
   font-size:14px;
   cursor: pointer;
   margin-right: 12px;
   padding-left: 10px;
-  border-left: 1px solid #400d54;
+  border-left: 1px solid #d21f92;
   appearance: none;
   background: transparent;
   padding-right: 0;
@@ -107,6 +130,8 @@ hr{
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin: 0;
+
 }
 
 
@@ -170,19 +195,20 @@ ul {
   }
 
 .switch{
-    background: white;
+    background:#4e1467;
     position: relative;
     display: inline-block;
     border-radius: 20px;
     margin:0 10px ;
     height: 20px;
-    width: 50px;
+    width: 40px;
     cursor:pointer
   }
 
   .switch:after{
-    background: magenta;
-    border-radius: 50%;
+    box-shadow: 0 1px 4px 2px rgb(152,24,204);
+    background: #4f1467;
+    border-radius: 8px;
     content: ""; 
     display: block;
     width:16px;   
@@ -203,6 +229,8 @@ ul {
     left:auto;
     right: 3px;
   }
+
+  
    
   .artists,.tracks {
     font-family: Source Sans Pro,sans-serif;
