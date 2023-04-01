@@ -10,28 +10,17 @@ const amandaSecretClientId = config.amandaSecretClientId
 const search = document.querySelector(".search")
 const searchResults = document.querySelector("#results")
 const artistToggle = document.querySelector(".checkbox")
-
-
 const inputElement = document.getElementById("input");
 let placeholder = inputElement.placeholder;
 const checkbox = document.querySelector("input[name=toggle]");
-console.log(placeholder)
+const songsList = document.querySelector(".songs")
 
-checkbox.addEventListener('change', function() {
-  if (this.checked) {
-    inputElement.placeholder = "Search By Artist";
-    // console.log("Checkbox is checked..");
-  } else {
-    inputElement.placeholder = "Search By Track";
-    // console.log("Checkbox is not checked..");
-  }
-})
+
+  
+
+
+
 localStorage.setItem("base_uri", window.location);
-
-
-
-
-
 
 //======Obtains parameters from the hash of the URL========
   
@@ -96,27 +85,6 @@ function getHashParams() {
   
 })();
 
-    
-
-    
-//Example Fetch ==============================
-
-// const endpoint = "https://api.spotify.com/v1/recommendations";
-// const artists = '6sFIWsNpZYqfjUpaCgueju';
-// const danceability = encodeURIComponent('0.9');
-
-// fetch(`${endpoint}?seed_artists=${artists}&target_danceability=${danceability}`, {
-//   method: "GET",
-//   headers: {
-//       Authorization: `Bearer ${access_token}`
-//   }
-// })
-// .then(response => response.json())
-// .then(({tracks}) => {
-//   tracks.forEach(item => {
-//     console.log(`${item.name} by ${item.artists[0].name}`);
-//   })
-// })
 
 //==============================================
 
@@ -139,9 +107,28 @@ const fetchFrom = async function (url){
         console.log("There was an error.",error);
     }
 }
-//======================================================
+//========================================
 
-//function to remove all child nodes//====
+//Example Fetch ==============================
+
+/*
+async function danceability(){
+
+  const endpoint = "https://api.spotify.com/v1/recommendations";
+  const artists = '6sFIWsNpZYqfjUpaCgueju';
+  const danceability = encodeURIComponent('0.9');
+
+  const dance = await fetchFrom(`${endpoint}?seed_artists=${artists}&target_danceability=${danceability}`)
+
+ 
+  console.log("DANCE:",`${item.name} by ${item.artists[0].name}`);
+
+}
+
+danceability()
+*/
+
+//function to remove all child nodes//==============
 function removeAllChildNodes(node) { 
   while(node.firstChild) {
     node.removeChild(node.firstChild)
@@ -151,12 +138,9 @@ function removeAllChildNodes(node) {
 ///======================================
 
 const spotifyUrl = 'https://api.spotify.com/v1/audio-features/11dFghVXANMlKmJXsNCbNl'
-const artistUrl = 'https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl'
+
 const recommendationsUrl = "https://api.spotify.com/v1/recommendations"
 
-
-const getArtistTracksUrl = 'https://api.spotify.com/v1/tracks/'
-const id = "3TVXtAsR1Inumwj472S9r4" 
 
 async function dataFetch(){
     const dataFeature = await fetchFrom(spotifyUrl)
@@ -166,36 +150,52 @@ async function dataFetch(){
     console.log("acousticness", acousticness)
     
 }
-dataFetch()
 
-/*async function getArtistTracks(){
-  const trackData = await fetchFrom(getArtistTracksUrl + id)
-  console.log(trackData)
-}
-getArtistTracks()
-*/
+
 
 async function getRecommendations(){
   const recommendationsData = await fetchFrom (recommendationsUrl + `?seed_artists=4NHQUGzhtTLFvgF5SZesLK&country,classical&limit=5`)
-  const songName = recommendationsData.tracks[0].name
-  const songsUrl = recommendationsData.tracks[0].external_urls.spotify
-
-  console.log("recommendations:",recommendationsData)
-  console.log(songName)
-  console.log(songsUrl)
+  console.log(recommendationsData)
+  console.log(recommendationsData.tracks[0].name)
+  console.log(recommendationsData.tracks[0].album.images[0].url)
+  console.log(recommendationsData.tracks[0].external_urls)
+  for(let i = 0; i < 5; i++){
+    const songName=recommendationsData.tracks[i].name
+    const songImg = recommendationsData.tracks[i].album.images[0].url
+    const songUrl=recommendationsData.tracks[i].external_urls.spotify
+    const list = document.createElement("li")
+  const anchor = document.createElement("a")
+  const img = document.createElement("img")
+  songsList.appendChild(list)
+  list.appendChild(anchor)
+  list.appendChild(img)
+  anchor.innerText= songName
+  anchor.href=songUrl
+  img.src= songImg
+  }
 }
 getRecommendations()
 
 
-
-
-//=====SEARCH ARTIST FUNCTION ====================
+//SEARCH TAB FUNCTION =================================
 const namesFromDOM = document.getElementsByClassName("name");
 
 search.addEventListener("keyup", (e) => {
   let {value} = e.target;
+  let type = ""
   console.log(value)
-  searchArtist(value)
+  if (checkbox.checked) {
+    inputElement.placeholder = "Search By Artist";
+    type = "artist"
+    searchArtist(value)
+    console.log("checked")
+  } else {
+    inputElement.placeholder = "Search By Track";
+    type = "track"
+    searchTracks(value)
+    console.log("not checked")
+  }
+  
   // get user search input converted to lowercase
   const searchQuery = value.toLowerCase();
   
@@ -223,70 +223,77 @@ const paramss = new URLSearchParams({
   type: 'track',
   limit: 10
 });
-async function tracks(){
-  
-  const tracks = await fetchFrom(`${searchUrl}?${paramss}`) 
-  console.log(tracks)
-}
-tracks()
 
+
+
+//Tracks============================================================
+async function searchTracks (value) {
+  const dataTrack = await fetchFrom(searchUrl + `?query=${value}&type=track&offset=0&limit=7`)
+ 
+  removeAllChildNodes(searchResults)
+  for (let i = 0; i < 7; i++){
+    //Variables=================================================================
+    const trackUrl = dataTrack.tracks.items[i].album.external_urls.spotify
+    const trackName = dataTrack.tracks.items[i].name
+    const tracktImg = dataTrack.tracks.items[i].album.images[0].url
+    //Create Elements================================================================================
+    const list = document.createElement("li")
+    const anchor = document.createElement("a")
+    const img = document.createElement("img")
+    //Append============================================================
+    searchResults.appendChild(list)
+    list.appendChild(anchor)
+    list.appendChild(img)
+    //Assign================================================================================
+    anchor.innerText =  trackName
+    anchor.href = trackUrl
+    img.src = tracktImg
+ }
+  
+}
+
+//Artists===========================================================
 async function searchArtist(value){
+
   const dataSearch = await fetchFrom(searchUrl +`?query=${value}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`)
-//DATA FETCH ELEMENTS=======================
 
- 
-  
-  console.log("search artist", dataSearch)
- 
-  
-
-//=======================================
-
-removeAllChildNodes(searchResults)
-    //searchResults.styles.display = 'block
-    for (let i = 0; i < 5; i++){
-      const url = dataSearch.artists.items[i].external_urls.spotify
-      const artistName = dataSearch.artists.items[i].name
-      const artistImg = dataSearch.artists.items[i].images[0].url
-      //====================
-      console.log("URL:",url)
-      console.log("Artist name", artistName)
-      console.log("Artist image", artistImg)
-      const list = document.createElement("li")
-      const anchor = document.createElement("a")
-      const img = document.createElement("img")
-      searchResults.appendChild(list)
-      list.appendChild(anchor)
-      list.appendChild(img)
-      anchor.innerText = artistName
-      anchor.href = url
-      img.src = artistImg
-    }
+  removeAllChildNodes(searchResults)
+  for (let i = 0; i < 5; i++){
+    //Variables=================================================================
+    const artistUrl = dataSearch.artists.items[i].external_urls.spotify
+    const artistName = dataSearch.artists.items[i].name
+    const artistImg = dataSearch.artists.items[i].images[0].url
+    //Create Elements================================================================================
+    const list = document.createElement("li")
+    const anchor = document.createElement("a")
+    const img = document.createElement("img")
+    //Append============================================================
+    searchResults.appendChild(list)
+    list.appendChild(anchor)
+    list.appendChild(img)
+    //Assign================================================================================
+    anchor.innerText = artistName
+    anchor.href = artistUrl
+    img.src = artistImg
+      
+  }
 }
 
-// listen for user events
-// async function searchStories(searchTerm){
-//   const data = await fetchFrom(searchUrl +`&q=${searchTerm}`)//interlope query string with serach term
-//   const docs = data.response.docs
-//   removeAllChildNodes(unOrderList)
-//     for (let i = 0; i < 10; i++){
-//       const articles = data.response.docs[i].abstract
-//       const url = data.response.docs[i].web_url
-//       const list = document.createElement("li")
-//       const anchor = document.createElement("a")
-//       searchList.appendChild(list)
-//       list.appendChild(anchor)
-//       anchor.href = url
-//       anchor.innerText = articles
-//     }
-// }
 
-// document.getElementById('reset').addEventListener('click', function() {
-//   searchArtist()
-// })
+checkbox.addEventListener('change', function() {
+  if (checkbox.checked) {
+    inputElement.placeholder = "Search By Artist";
+    console.log("checked")
+  } else {
+    inputElement.placeholder = "Search By Track";
+    console.log("not checked")
+  }
+})
+
+
 
 //===================AUTHORIZATION=============================================
 // curl -X POST "https://accounts.spotify.com/api/token" \
 //      -H "Content-Type: application/x-www-form-urlencoded" \
 //      -d "grant_type=client_credentials&client_id=8000899d5e9e48a4b3247707457bda87&client_secret=0a9415cd75634018bcfce83622defd36"
-//=========================================================================
+//=============================================================================
