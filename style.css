@@ -4,27 +4,42 @@
 
 
 body{
-  font-family: "Open Sans", sans-serif;
+  font-family: Source Sans Pro,sans-serif;
   background-color: #110915;
+  margin: 30px;
+  min-height: 100vh;
+  
 }
 
 #title{
-  background: linear-gradient(to right, #a01077 20%, #9a08c0 80%);
+  background: linear-gradient(to right, #a11077 20%, #9a08c0 80%);
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 550;
+  
 }
+
 .mission{
-  color: #d66aff;
+  color: #d56aff;
+  font-size: 40px;
+  line-height: 50px;
+  font-family: Barlow,sans-serif;
+  width: 13em;
+  font-weight: 550;
 }
 
+/* .page-divider {
+  background-color: #a11077;
+  height: 1px;
+  margin: 0;
+  margin-bottom: 5px;
+} */
 
-.search{
-  background:transparent;
-  font-size: 20px;
-  line-height: 40px;
-  
-  border:none;
-  color:white;
-  
+.bottom p {
+  margin: 0;
 }
+
 .search::placeholder{
   color: #b095bd;
 }
@@ -32,6 +47,7 @@ body{
 
 .artist{
   font-size: 14px;
+  font-weight:600;
   box-sizing: border-box;
   color: #ffa9e1;
   display:flex;
@@ -46,16 +62,16 @@ body{
 }
 
 
+
 #reset{
   color: #d21f92;
-  border-left-color: #86155e;
   border: 0 none;
   font-family: Source Sans Pro, sans-serif;
   font-size:14px;
   cursor: pointer;
   margin-right: 12px;
   padding-left: 10px;
-  border-left: 1px solid #400d54;
+  border-left: 1px solid #d21f92;
   appearance: none;
   background: transparent;
   padding-right: 0;
@@ -71,12 +87,11 @@ body{
 .container{
   margin-top: 1.5rem!important;
   margin-bottom: 1.5rem!important;
+  max-width: 1500px;
 }
 
 
-hr{
-  height: 1px;
-}
+
 
 .spotify-connect{
   color: black;
@@ -104,6 +119,8 @@ hr{
   align-items: center;
   display: flex;
   justify-content: space-between;
+  
+
 }
 
 
@@ -111,28 +128,6 @@ hr{
   margin:3px;
 }
 
-ul {
-    overflow: hidden; 
-    flex: 0;
-    appearance: none;
-    border: 0 none;
-    font-family: Source Sans Pro,sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 12px;
-    color: #86155e;
-    padding-left: 10px;
-    border-left: 1px solid #400d54;
-    background: transparent;
-    padding-right: 0;
-    background-color: rgba(64,13,84,.6);
-    transition: background-color .2s;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    padding:10px;
-    cursor:pointer
-  }
 
   a:link {
     color:rgb(240, 213, 234);
@@ -147,7 +142,7 @@ ul {
   }
   
   a:hover {
-    color: rgb(213, 71, 173);
+   
     background-color: transparent;
     text-decoration: underline;
   }
@@ -167,41 +162,51 @@ ul {
   }
 
 .switch{
-    background: white;
+    background:#4e1467;
     position: relative;
     display: inline-block;
     border-radius: 20px;
     margin:0 10px ;
-    height: 20px;
-    width: 50px;
-    cursor:pointer
-    
+    height: 6px;
+    width: 31px;
+    cursor:pointer;
+    top: 8.5px;
+    transition-duration: 3s;
   }
 
   .switch:after{
-    background: magenta;
-    border-radius: 50%;
+    box-shadow: 0 1px 4px 2px rgb(152,24,204);
+    background: rgb(152,24,204);
+    border-radius: 8px;
     content: ""; 
     display: block;
     width:16px;   
     height: 16px;   
     position: absolute;
     left:2.5px;
-    top: 2px;
+    top: -5px;
+    
+    
   }
   input[type="checkbox"]{
-    display:none
+   display:none;
+   
   }
   input[type="checkbox"]:checked ~ .artists,
   input[type="checkbox"]:not(:checked) ~ .tracks{
     color:#ffa9e1;
-
+    
   }
   input[type="checkbox"]:not(:checked) ~ .switch:after{
-    left:auto;
-    right: 3px;
+    left:12px;
+    transition: all 0.2s linear;
+    right: 0px;
   }
-   
+  input[type="checkbox"]:checked ~ .switch:after{
+    transition: all 0.2s linear;
+    
+  }
+
   .artists,.tracks {
     font-family: Source Sans Pro,sans-serif;
     font-weight: 400;
@@ -214,4 +219,101 @@ ul {
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
+    border-bottom: 1px solid #86155e;
   }
+
+
+  /* =====================DROPBOX STYLE============================== */
+  
+  .dropbtn{
+    background:transparent;
+    font-size: 20px;
+    line-height: 40px;
+    border:none;
+    color:#f1cfff;
+     
+    
+  }
+  
+  
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+  }
+  
+  #searcher {
+    font-size: 22px;
+    line-height: 30px;
+    outline: none;
+    flex: 1;
+    background: transparent;
+    color: #94478a;
+    text-shadow:rgba(153,24,204,.4) ;
+    width: 1210px;
+    margin: 0;
+    padding: 0 10px 0 0;
+    font-family: Barlow,sans-serif;
+  }
+  
+  #searcher:focus {
+    align-items: center;
+    position: relative;
+    padding-right: 1px;
+    
+    transition: 2s;
+    margin-bottom: 10px;
+    z-index: 2;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    background-color: transparent;
+    min-width: 100%;
+    overflow:auto;
+    z-index: 1;
+  }
+
+  ul {
+    overflow: hidden;
+    appearance: none;
+    border: 0 none;
+    font-family: Source Sans Pro,sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 12px;
+    color: #a27994;
+    padding-left: 10px;
+    border-left: 1px solid #400d54;
+    padding-right: 0;
+    background-color: transparent;
+    transition: background-color .2s;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    
+  }
+
+  
+
+  
+  .dropdown-content :hover {
+    background-color:  #7a0f6d;
+    
+  
+  }
+  
+  .show {
+    display:block;}
+
+    .red {
+      color:red;}
+  
+
+  /* ^^^^^^^^^^^^^^^^^^^DROPBOX STYLE^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */

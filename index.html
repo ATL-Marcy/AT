@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title> API Project </title>
 </head>
 <body>
     <!-- Our main header that is used across all the pages of our website -->
-    <header id= "header" class="fixed-top">
+   
+   
+
+
+
+   
+    <header id= "header">
       <div id="logo-btn" class="container display flex align-items-center justify-content-between">
         <h1 id= "title">M00DMUSE</a></h1>
         <div>
@@ -23,15 +30,20 @@
       </div>
 
       <h1 class="mission">Explore fresh tunes through familiar favorites. </h1>
-      <form autocomplete="off">
-        <div class="search">
-          <input aria-owns aria-activedescendant type ="text" placeholder="Search By Artist" id= "input" class= "search" >
-
-          <ul role="listbox" id="results"></ul>
+      <form autocomplete="off"  >
+        <div class="search" onclick="myFunction()">
+          
+            <div id="myDropdown" >
+              <input aria-owns aria-activedescendant type ="text" placeholder="Search By Artist" id= "searcher" class="dropbtn"
+              onkeyup="filterFunction()" >
+             
+              <ul role="listbox" id="results" class="dropdown-content"
+              onclick="myFunction()"></ul>
+          </div>
 
           </div>
               <label class = "toggles">
-                <input class ="checkbox" type="checkbox" name="toggle" id="" checked>
+                <input class ="checkbox" type="checkbox" name="toggle" id="toggle" checked>
                 <span class="artists">Artists</span>
                 <span class ="switch">&nbsp;</span>
                 <span class="tracks"><span>
@@ -43,16 +55,51 @@
       </form>
      
   </header>
-  <hr>
+  <hr class="page-divider"/>
+
+  <div class="recommendations">
+    <ul class="songs"></ul>
+  </div>
+  <div class="audio-features"></div>
 
    <!-- Our main footer that is used across all the pages of our website -->
-<div class="bottom">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">Trevon's and Amanda's proj.
+
+<div class="bottom fixed-bottom">
+  <hr class="page-divider" />
+  <footer>
+    <p>Trevon's and Amanda's proj.</p>
     <p id="AT link">©AT</p>
   </footer>
 </div>
-</hr>
+
+
   
 </body>
+<script>
+  /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+  document.getElementById("searcher").classList.toggle("show");
+  // document.getElementsByTagName("li").classList.toggle("show");
+
+}
+
+function filterFunction() {
+  console.log("woah")
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("searcher");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("results");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+  </script>
 <script type ="module" src ="script.js"></script>
 </html>
