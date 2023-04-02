@@ -155,10 +155,7 @@ async function dataFetch(){
 
 async function getRecommendations(){
   const recommendationsData = await fetchFrom (recommendationsUrl + `?seed_artists=4NHQUGzhtTLFvgF5SZesLK&country,classical&limit=5`)
-  console.log(recommendationsData)
-  console.log(recommendationsData.tracks[0].name)
-  console.log(recommendationsData.tracks[0].album.images[0].url)
-  console.log(recommendationsData.tracks[0].external_urls)
+  
   for(let i = 0; i < 5; i++){
     const songName=recommendationsData.tracks[i].name
     const songImg = recommendationsData.tracks[i].album.images[0].url
@@ -174,8 +171,6 @@ async function getRecommendations(){
   img.src= songImg
   }
 }
-getRecommendations()
-
 
 //SEARCH TAB FUNCTION =================================
 const namesFromDOM = document.getElementsByClassName("name");

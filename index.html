@@ -9,7 +9,6 @@
     <title> API Project </title>
 </head>
 <body>
-    <!-- Our main header that is used across all the pages of our website -->
     <header id= "header">
       <div id="logo-btn" class="container display flex align-items-center justify-content-between">
         <h1 id= "title">M00DMUSE</a></h1>
@@ -49,7 +48,124 @@
   <div class="recommendations">
     <ul class="songs"></ul>
   </div>
-  <div class="audio-features"></div>
+
+  <div id="root">
+  <div class="features-box">
+    <button class="drop-down">
+      <b>
+        "Show"
+        "Tracklist"
+      </b>
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDEyIDciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTExLjAyNy42N0wxMC40Ny4xMTJDMTAuNC4wNDUgMTAuMyAwIDEwLjIxIDBjLS4wOSAwLS4xOS4wNDUtLjI1Ny4xMTJMNS41NyA0LjQ5OCAxLjE4Mi4xMTJDMS4xMTYuMDQ1IDEuMDE2IDAgLjkyNiAwYy0uMSAwLS4xOS4wNDUtLjI1Ni4xMTJMLjExMi42N0MuMDQ1LjczNyAwIC44MzcgMCAuOTI2YzAgLjA5LjA0NS4xOS4xMTIuMjU3bDUuMiA1LjJjLjA2Ny4wNjguMTY4LjExMy4yNTcuMTEzLjA4OCAwIC4xOS0uMDQ1LjI1Ni0uMTEybDUuMi01LjJjLjA2OC0uMDY4LjExMi0uMTY4LjExMi0uMjU4cy0uMDQ0LS4xOS0uMTEtLjI1NnoiIGZpbGw9IiM4NjE1NWUiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==" alt="Show playlist settings" aria-hidden="true">
+    </button>
+    <div class="features">
+      <div class="max">
+       <label>
+        "Max number of tracks"
+        <select>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25" selected>25</option>
+          <option value="50">50</option>
+          <option value="75">75</option>
+          <option value="100">100</option>
+        </select>
+       </label> 
+      </div>
+      <div class="popular-box">
+        <label>Popularity</label>
+        <div class="popularity-slider">
+          <div class="rc-slider-rail" style="height: 2px;"></div> 
+          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
+          <div class="rc-slider-step"></div>
+          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-disabled="false" style="left: 0%; right:auto; transform: translateX(-50);"></div>
+          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
+          <div class="rc-slider-mark"></div>
+        </div>
+        <div class="where">
+          <b>Playing at bars</b>
+          <b>World Tour</b>
+        </div>
+      </div>
+      <div class="energy-box">
+        <label>Energy</label>
+        <div class="energy-slider">
+          <div class="rc-slider-rail" style="height: 2px;"></div> 
+          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
+          <div class="rc-slider-step"></div>
+          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
+          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
+          <div class="rc-slider-mark"></div>
+        </div>
+        <div class="kind-of-energy">
+          <b>Chill</b>
+          <b>No chill</b>
+        </div>
+      </div>
+      <div class="vocal-box">
+        <label>Vocals</label>
+        <div class="vocal-slider">
+          <div class="rc-slider-rail" style="height: 2px;"></div> 
+          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
+          <div class="rc-slider-step"></div>
+          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
+          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
+          <div class="rc-slider-mark"></div>
+        </div>
+        <div class="amount-of-vocal">
+          <b>None</b>
+          <b>Alot</b>
+        </div>
+      </div>
+      <div class="tempo-box">
+        <label>Tempo</label>
+        <div class="tempo-slider">
+          <div class="rc-slider-rail" style="height: 2px;"></div> 
+          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
+          <div class="rc-slider-step"></div>
+          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="24" aria-valuemax="208" aria-valuenow="24" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
+          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="24" aria-valuemax="208" aria-valuenow="208" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
+          <div class="rc-slider-mark"></div>
+        </div>
+        <div class="speed">
+          <b>Slow</b>
+          <b>Fast</b>
+        </div>
+      </div>
+      <div class="dance-box">
+        <label>Danceable</label>
+        <div class="dance-slider">
+          <div class="rc-slider-rail" style="height: 2px;"></div> 
+          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
+          <div class="rc-slider-step"></div>
+          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
+          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
+          <div class="rc-slider-mark"></div>
+        </div>
+        <div class="how-danceable">
+          <b>Not at all</b>
+          <b>Disco</b>
+        </div>
+      </div>
+      <div class="mood-box">
+        <label>Mood</label>
+        <div class="mood-slider">
+         <div class="rc-slider-rail" style="height: 2px;"></div> 
+         <div class="rc-slider-track-1" style="left: 0; right: auto; width: 100%"></div>
+         <div class="rc-slider-step"></div>
+         <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
+         <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
+         <div class="rc-slider-mark"></div>
+        </div>
+        <div class="type-of-mood">
+          <b>Downer</b>
+          <b>Upper</b>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
 
    <!-- Our main footer that is used across all the pages of our website -->
 
