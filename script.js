@@ -151,42 +151,60 @@ async function dataFetch(){
     
 }
 
-
-
 async function getRecommendations(){
+ 
+
   const recommendationsData = await fetchFrom (recommendationsUrl + `?seed_artists=4NHQUGzhtTLFvgF5SZesLK&country,classical&limit=5`)
-  
+  console.log(recommendationsData)
+  console.log(recommendationsData.tracks[0].name)
+  console.log(recommendationsData.tracks[0].album.images[0].url)
+  console.log(recommendationsData.tracks[0].external_urls)
   for(let i = 0; i < 5; i++){
-    const songName=recommendationsData.tracks[i].name
-    const songImg = recommendationsData.tracks[i].album.images[0].url
-    const songUrl=recommendationsData.tracks[i].external_urls.spotify
-    const list = document.createElement("li")
+
+  const songName=recommendationsData.tracks[i].name
+  const songImg = recommendationsData.tracks[i].album.images[0].url
+  const songUrl=recommendationsData.tracks[i].external_urls.spotify
+
+  const slist = document.createElement("li")
   const anchor = document.createElement("a")
   const img = document.createElement("img")
-  songsList.appendChild(list)
-  list.appendChild(anchor)
-  list.appendChild(img)
+
+  songsList.appendChild(slist)
+  slist.appendChild(anchor)
+  slist.appendChild(img)
+
   anchor.innerText= songName
-  anchor.href=songUrl
+  anchor.href = songUrl
   img.src= songImg
+  
+ 
   }
+  
 }
+getRecommendations()
+
 
 //SEARCH TAB FUNCTION =================================
 const namesFromDOM = document.getElementsByClassName("name");
 
 search.addEventListener("keyup", (e) => {
   let {value} = e.target;
-  let type = ""
+  
   console.log(value)
+  searchResults.addEventListener("click", (e) => {
+   
+    getRecommendations() 
+  })
+  
+
   if (checkbox.checked) {
     inputElement.placeholder = "Search By Artist";
-    type = "artist"
+    
     searchArtist(value)
     console.log("checked")
   } else {
     inputElement.placeholder = "Search By Track";
-    type = "track"
+    
     searchTracks(value)
     console.log("not checked")
   }
@@ -207,6 +225,7 @@ search.addEventListener("keyup", (e) => {
           nameElement.style.display = "none";
       }
   }
+ 
 });
 
 
@@ -240,8 +259,8 @@ async function searchTracks (value) {
     list.appendChild(anchor)
     list.appendChild(img)
     //Assign================================================================================
-    anchor.innerText =  trackName
-    anchor.href = trackUrl
+    anchor.innerText = trackName
+    // anchor.href = trackUrl
     img.src = tracktImg
  }
   
@@ -268,7 +287,7 @@ async function searchArtist(value){
     list.appendChild(img)
     //Assign================================================================================
     anchor.innerText = artistName
-    anchor.href = artistUrl
+    // anchor.href = artistUrl
     img.src = artistImg
       
   }
