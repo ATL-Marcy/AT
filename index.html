@@ -9,175 +9,78 @@
     <title> API Project </title>
 </head>
 <body>
-    <header id= "header">
-      <div id="logo-btn" class="container display flex align-items-center justify-content-between">
+    <!-- Our main header that is used across all the pages of our website -->
+    <header id= "header" class="fixed-top">
+      <div class="container display flex align-items-center justify-content-between">
         <h1 id= "title">M00DMUSE</a></h1>
         <div>
           <a id="search-bar">
-            <img alt="Spotify" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U3BvdGlmeV9JY29uX1JHQl9HcmVlbjwvdGl0bGU+PHBhdGggZD0iTTE1LjU4OCA5LjA5NEMxMi40MyA3LjIyIDcuMjIzIDcuMDQ3IDQuMjA4IDcuOTZjLS40ODMuMTQ4LS45OTQtLjEyNS0xLjE0LS42MS0uMTQ4LS40ODMuMTI1LS45OTUuNjEtMS4xNDIgMy40Ni0xLjA1IDkuMjEtLjg0NyAxMi44NDUgMS4zMS40MzYuMjYuNTguODIuMzIgMS4yNTYtLjI1OC40MzUtLjgyLjU4LTEuMjU1LjMyem0tLjEwMyAyLjc3N2MtLjIyMi4zNi0uNjkyLjQ3My0xLjA1LjI1My0yLjYzMy0xLjYxOC02LjY0Ni0yLjA4Ny05Ljc2LTEuMTQyLS40MDQuMTIzLS44My0uMTA0LS45NTMtLjUwOC0uMTIyLS40MDMuMTA2LS44My41MS0uOTUyIDMuNTU2LTEuMDggNy45OC0uNTU3IDExLjAwMiAxLjMuMzYuMjIyLjQ3Mi42OTMuMjUgMS4wNXptLTEuMiAyLjY2OGMtLjE3NS4yOS0uNTUuMzgtLjgzOC4yMDMtMi4zLTEuNDA0LTUuMTk1LTEuNzIyLTguNjA0LS45NDMtLjMzLjA3NS0uNjU2LS4xMy0uNzMtLjQ2LS4wNzctLjMyOC4xMy0uNjU1LjQ1OC0uNzMgMy43MzItLjg1MyA2LjkzMi0uNDg2IDkuNTE0IDEuMDkyLjI4OC4xNzQuMzc4LjU1LjIwMi44Mzh6TTkuNzk2LjQxQzQuMzg1LjQxIDAgNC43OTcgMCAxMC4yMDYgMCAxNS42MTUgNC4zODUgMjAgOS43OTUgMjBzOS43OTQtNC4zODUgOS43OTQtOS43OTVTMTUuMjAzLjQxIDkuNzk0LjQxeiIgZmlsbD0iIzREQjA1QiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" class="spotifyicon">
-            <span class="spotify-connect">Connect with Spotify</span>
+            <img alt="Spotify" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U3BvdGlmeV9JY29uX1JHQl9HcmVlbjwvdGl0bGU+PHBhdGggZD0iTTE1LjU4OCA5LjA5NEMxMi40MyA3LjIyIDcuMjIzIDcuMDQ3IDQuMjA4IDcuOTZjLS40ODMuMTQ4LS45OTQtLjEyNS0xLjE0LS42MS0uMTQ4LS40ODMuMTI1LS45OTUuNjEtMS4xNDIgMy40Ni0xLjA1IDkuMjEtLjg0NyAxMi44NDUgMS4zMS40MzYuMjYuNTguODIuMzIgMS4yNTYtLjI1OC40MzUtLjgyLjU4LTEuMjU1LjMyem0tLjEwMyAyLjc3N2MtLjIyMi4zNi0uNjkyLjQ3My0xLjA1LjI1My0yLjYzMy0xLjYxOC02LjY0Ni0yLjA4Ny05Ljc2LTEuMTQyLS40MDQuMTIzLS44My0uMTA0LS45NTMtLjUwOC0uMTIyLS40MDMuMTA2LS44My41MS0uOTUyIDMuNTU2LTEuMDggNy45OC0uNTU3IDExLjAwMiAxLjMuMzYuMjIyLjQ3Mi42OTMuMjUgMS4wNXptLTEuMiAyLjY2OGMtLjE3NS4yOS0uNTUuMzgtLjgzOC4yMDMtMi4zLTEuNDA0LTUuMTk1LTEuNzIyLTguNjA0LS45NDMtLjMzLjA3NS0uNjU2LS4xMy0uNzMtLjQ2LS4wNzctLjMyOC4xMy0uNjU1LjQ1OC0uNzMgMy43MzItLjg1MyA2LjkzMi0uNDg2IDkuNTE0IDEuMDkyLjI4OC4xNzQuMzc4LjU1LjIwMi44Mzh6TTkuNzk2LjQxQzQuMzg1LjQxIDAgNC43OTcgMCAxMC4yMDYgMCAxNS42MTUgNC4zODUgMjAgOS43OTUgMjBzOS43OTQtNC4zODUgOS43OTQtOS43OTVTMTUuMjAzLjQxIDkuNzk0LjQxeiIgZmlsbD0iIzREQjA1QiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" class="_2wbeAGJp1HEYv7CLaQQaDC">
+            <span class="1BOC1e8tx5AhHF_ehsVixH">Connect with Spotify</span>
             
           </a>
         </div>
 
       </div>
-
-      <h1 class="mission">Explore fresh tunes through familiar favorites. </h1>
       <form autocomplete="off">
-        <div class="search">
-          <input aria-owns aria-activedescendant type ="text" placeholder="Search By Artist" id= "input" class= "search" >
-
-          <ul role="listbox" id="results"></ul>
-
-          </div>
-              <label class = "toggles">
-                <input class ="checkbox" type="checkbox" name="toggle" id="toggle">
-                <span class="artists">Artists</span>
-                <span class ="switch">&nbsp;</span>
-                <span class="tracks"><span>
-                <span>Tracks</span>
-                <button id="reset">Reset</button>
-              </label>
-          </div>
+      <div class="search">
+        <input aria-owns aria-activedescendant type ="text" class= "search" placeholder="Search By Artist">
+      
+        <div class="CDYTeHJ76Dgy5Fe5cQqKn _1DDnuex9DHCLwfQ3h_Jr2X">
+          <label>
+            <span class="artist">Artists</span>
+            
+            <div class="play"><div>
+              <span>Tracks</span>
+          </label>
         </div>
-      </form>
-     
-  </header>
-  <hr class="page-divider"/>
-
-  <div class="recommendations">
-    <ul class="songs"></ul>
-  </div>
-
-  <div id="root">
-  <div class="features-box">
-    <button class="drop-down">
-      <b>
-        "Show"
-        "Tracklist"
-      </b>
-      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDEyIDciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTExLjAyNy42N0wxMC40Ny4xMTJDMTAuNC4wNDUgMTAuMyAwIDEwLjIxIDBjLS4wOSAwLS4xOS4wNDUtLjI1Ny4xMTJMNS41NyA0LjQ5OCAxLjE4Mi4xMTJDMS4xMTYuMDQ1IDEuMDE2IDAgLjkyNiAwYy0uMSAwLS4xOS4wNDUtLjI1Ni4xMTJMLjExMi42N0MuMDQ1LjczNyAwIC44MzcgMCAuOTI2YzAgLjA5LjA0NS4xOS4xMTIuMjU3bDUuMiA1LjJjLjA2Ny4wNjguMTY4LjExMy4yNTcuMTEzLjA4OCAwIC4xOS0uMDQ1LjI1Ni0uMTEybDUuMi01LjJjLjA2OC0uMDY4LjExMi0uMTY4LjExMi0uMjU4cy0uMDQ0LS4xOS0uMTEtLjI1NnoiIGZpbGw9IiM4NjE1NWUiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==" alt="Show playlist settings" aria-hidden="true">
-    </button>
-    <div class="features">
-      <div class="max">
-       <label>
-        "Max number of tracks"
-        <select>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="25" selected>25</option>
-          <option value="50">50</option>
-          <option value="75">75</option>
-          <option value="100">100</option>
-        </select>
-       </label> 
+        <button id="reset">Reset</button>
       </div>
-      <div class="popular-box">
-        <label>Popularity</label>
-        <div class="popularity-slider">
-          <div class="rc-slider-rail" style="height: 2px;"></div> 
-          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
-          <div class="rc-slider-step"></div>
-          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-disabled="false" style="left: 0%; right:auto; transform: translateX(-50);"></div>
-          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
-          <div class="rc-slider-mark"></div>
-        </div>
-        <div class="where">
-          <b>Playing at bars</b>
-          <b>World Tour</b>
-        </div>
-      </div>
-      <div class="energy-box">
-        <label>Energy</label>
-        <div class="energy-slider">
-          <div class="rc-slider-rail" style="height: 2px;"></div> 
-          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
-          <div class="rc-slider-step"></div>
-          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
-          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
-          <div class="rc-slider-mark"></div>
-        </div>
-        <div class="kind-of-energy">
-          <b>Chill</b>
-          <b>No chill</b>
-        </div>
-      </div>
-      <div class="vocal-box">
-        <label>Vocals</label>
-        <div class="vocal-slider">
-          <div class="rc-slider-rail" style="height: 2px;"></div> 
-          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
-          <div class="rc-slider-step"></div>
-          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
-          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
-          <div class="rc-slider-mark"></div>
-        </div>
-        <div class="amount-of-vocal">
-          <b>None</b>
-          <b>Alot</b>
-        </div>
-      </div>
-      <div class="tempo-box">
-        <label>Tempo</label>
-        <div class="tempo-slider">
-          <div class="rc-slider-rail" style="height: 2px;"></div> 
-          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
-          <div class="rc-slider-step"></div>
-          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="24" aria-valuemax="208" aria-valuenow="24" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
-          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="24" aria-valuemax="208" aria-valuenow="208" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
-          <div class="rc-slider-mark"></div>
-        </div>
-        <div class="speed">
-          <b>Slow</b>
-          <b>Fast</b>
-        </div>
-      </div>
-      <div class="dance-box">
-        <label>Danceable</label>
-        <div class="dance-slider">
-          <div class="rc-slider-rail" style="height: 2px;"></div> 
-          <div class="rc-slider-track-1" style="left: 0%; right: auto; width: 100%"></div>
-          <div class="rc-slider-step"></div>
-          <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
-          <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
-          <div class="rc-slider-mark"></div>
-        </div>
-        <div class="how-danceable">
-          <b>Not at all</b>
-          <b>Disco</b>
-        </div>
-      </div>
-      <div class="mood-box">
-        <label>Mood</label>
-        <div class="mood-slider">
-         <div class="rc-slider-rail" style="height: 2px;"></div> 
-         <div class="rc-slider-track-1" style="left: 0; right: auto; width: 100%"></div>
-         <div class="rc-slider-step"></div>
-         <div tabindex="0" class="rc-slider-handle-1" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0" aria-disabled="false" style="left: 100%; right:auto; transform: translateX(-50);"></div>
-         <div tabindex="0" class="rc-slider-handle-2" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="1" aria-disabled="false" style="left:100%; right: auto; transform: translateX(-50);"></div>
-         <div class="rc-slider-mark"></div>
-        </div>
-        <div class="type-of-mood">
-          <b>Downer</b>
-          <b>Upper</b>
-        </div>
-      </div>
+    </form>
+       
+    </header>
+    <hr>
+    <nav> 
+        
+           <!-- A Search form is another common non-linear way to navigate through a website. -->
+       
+    </nav>
+        <!-- Our page's main content -->
+    <main>
 
-    </div>
-  </div>
-  </div>
+        <article>
+            <h2>Sample Article</h2>
 
-   <!-- Our main footer that is used across all the pages of our website -->
+            <p> 
+            BLAH BLAH BLAH
+            </p>
 
-<div class="bottom fixed-bottom">
-  <hr class="page-divider" />
-  <footer>
-    <p>Trevon's and Amanda's proj.</p>
+        </article>
+        
+        <!-- the aside content can also be nested within the main content -->
+      <aside>
+        <h2>Related</h2>
+
+        <ul>
+          <li><a href="#">Side content</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+        </ul>
+      </aside>
+
+    </main>
+
+      <!-- Our main footer that is used across all the pages of our website -->
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">Trevon's and Amanda's proj.
     <p id="AT link">©AT</p>
   </footer>
 </div>
 
   
 </body>
+<hr>
 <script type ="module" src ="script.js"></script>
 </html>

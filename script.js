@@ -138,171 +138,21 @@ function removeAllChildNodes(node) {
 ///======================================
 
 const spotifyUrl = 'https://api.spotify.com/v1/audio-features/11dFghVXANMlKmJXsNCbNl'
-
-const recommendationsUrl = "https://api.spotify.com/v1/recommendations"
-
+const artistUrl = 'https://api.spotify.com/v1/tracks/11dFghVXANMlKmJXsNCbNl'
+const searchUrl = `https://api.spotify.com/v1/search?query=${artistName}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`
 
 async function dataFetch(){
     const dataFeature = await fetchFrom(spotifyUrl)
-   
+    const dataSearch = await fetchFrom(searchUrl)
     const acousticness = dataFeature.acousticness
     console.log('data features:',dataFeature)
     console.log("acousticness", acousticness)
-    
+    console.log(dataSearch)
 }
-
-async function getRecommendations(){
- 
-
-  const recommendationsData = await fetchFrom (recommendationsUrl + `?seed_artists=4NHQUGzhtTLFvgF5SZesLK&country,classical&limit=5`)
-  console.log(recommendationsData)
-  console.log(recommendationsData.tracks[0].name)
-  console.log(recommendationsData.tracks[0].album.images[0].url)
-  console.log(recommendationsData.tracks[0].external_urls)
-  for(let i = 0; i < 5; i++){
-
-  const songName=recommendationsData.tracks[i].name
-  const songImg = recommendationsData.tracks[i].album.images[0].url
-  const songUrl=recommendationsData.tracks[i].external_urls.spotify
-
-  const slist = document.createElement("li")
-  const anchor = document.createElement("a")
-  const img = document.createElement("img")
-
-  songsList.appendChild(slist)
-  slist.appendChild(anchor)
-  slist.appendChild(img)
-
-  anchor.innerText= songName
-  anchor.href = songUrl
-  img.src= songImg
-  
- 
-  }
-  
-}
-getRecommendations()
-
-
-//SEARCH TAB FUNCTION =================================
-const namesFromDOM = document.getElementsByClassName("name");
-
-search.addEventListener("keyup", (e) => {
-  let {value} = e.target;
-  
-  console.log(value)
-  searchResults.addEventListener("click", (e) => {
-   
-    getRecommendations() 
-  })
-  
-
-  if (checkbox.checked) {
-    inputElement.placeholder = "Search By Artist";
-    
-    searchArtist(value)
-    console.log("checked")
-  } else {
-    inputElement.placeholder = "Search By Track";
-    
-    searchTracks(value)
-    console.log("not checked")
-  }
-  
-  // get user search input converted to lowercase
-  const searchQuery = value.toLowerCase();
-  
-  for (const nameElement of namesFromDOM) {
-      // store name text and convert to lowercase
-      let name = nameElement.textContent.toLowerCase();
-      
-      // compare current name to search input
-      if (name.includes(searchQuery)) {
-          // found name matching search, display it
-          nameElement.style.display = "block";
-      } else {
-          // no match, don't display name
-          nameElement.style.display = "none";
-      }
-  }
- 
-});
-
-
-const searchUrl = `https://api.spotify.com/v1/search`
-
-
-const paramss = new URLSearchParams({
-  q: 'track:love',
-  type: 'track',
-  limit: 10
-});
+dataFetch()
 
 
 
-//Tracks============================================================
-async function searchTracks (value) {
-  const dataTrack = await fetchFrom(searchUrl + `?query=${value}&type=track&offset=0&limit=7`)
- 
-  removeAllChildNodes(searchResults)
-  for (let i = 0; i < 7; i++){
-    //Variables=================================================================
-    const trackUrl = dataTrack.tracks.items[i].album.external_urls.spotify
-    const trackName = dataTrack.tracks.items[i].name
-    const tracktImg = dataTrack.tracks.items[i].album.images[0].url
-    //Create Elements================================================================================
-    const list = document.createElement("li")
-    const anchor = document.createElement("a")
-    const img = document.createElement("img")
-    //Append============================================================
-    searchResults.appendChild(list)
-    list.appendChild(anchor)
-    list.appendChild(img)
-    //Assign================================================================================
-    anchor.innerText = trackName
-    // anchor.href = trackUrl
-    img.src = tracktImg
- }
-  
-}
-
-//Artists===========================================================
-async function searchArtist(value){
-
-  const dataSearch = await fetchFrom(searchUrl +`?query=${value}&type=artist&locale=en-US%2Cen%3Bq%3D0.9&offset=0&limit=20`)
-
-  removeAllChildNodes(searchResults)
-  for (let i = 0; i < 5; i++){
-    //Variables=================================================================
-    const artistUrl = dataSearch.artists.items[i].external_urls.spotify
-    const artistName = dataSearch.artists.items[i].name
-    const artistImg = dataSearch.artists.items[i].images[0].url
-    //Create Elements================================================================================
-    const list = document.createElement("li")
-    const anchor = document.createElement("a")
-    const img = document.createElement("img")
-    //Append============================================================
-    searchResults.appendChild(list)
-    list.appendChild(anchor)
-    list.appendChild(img)
-    //Assign================================================================================
-    anchor.innerText = artistName
-    // anchor.href = artistUrl
-    img.src = artistImg
-      
-  }
-}
-
-
-checkbox.addEventListener('change', function() {
-  if (checkbox.checked) {
-    inputElement.placeholder = "Search By Artist";
-    console.log("checked")
-  } else {
-    inputElement.placeholder = "Search By Track";
-    console.log("not checked")
-  }
-})
 
 
 
