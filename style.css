@@ -13,8 +13,7 @@ body{
   display:flex;
   align-items: center;
   justify-content: space-between;
-  font-weight: 550;
-  
+  font-weight: 550; 
 }
 
 .mission{
@@ -37,7 +36,6 @@ body{
   margin: 0;
 }
 
-
 .search{
   background:transparent;
   font-size: 20px;
@@ -51,7 +49,6 @@ body{
   color: #b095bd;
 }
 
-
 .artist{
   font-size: 14px;
   font-weight:600;
@@ -61,17 +58,9 @@ body{
   justify-content: space-between;
 }
 
-
 .play{
   color: rgba(255,169,225,.6);
-
-
 }
-
-#results {
-
-}
-
 
 #reset{
   color: #d21f92;
@@ -88,7 +77,6 @@ body{
 
 }
 
-
 .bottom{
   color:#c6a1d1 ;
   padding-top: 1rem!important;
@@ -99,8 +87,6 @@ body{
   margin-bottom: 1.5rem!important;
   max-width: 1500px;
 }
-
-
 
 hr{
   height: 1px;
@@ -124,16 +110,13 @@ hr{
   transition: box-shadow;
   box-sizing: border-box;
   cursor:pointer
-
 }
-
 
 #logo-btn {
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
-
 
 .spotifyicon{
   margin:3px;
@@ -399,11 +382,11 @@ input[type="checkbox"]:checked ~ .switch:after{
     margin: 0 -5px;
   }
   .amount-of-vocal b{
-display:block;
-font-weight: 700;
-font-size: 13px;
-line-height: 20px;
-font-family: Barlow,sans-serif;
+  display:block;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: Barlow,sans-serif;
   }
 
   .amount-of-vocal b:first-of-type{
@@ -444,11 +427,11 @@ font-family: Barlow,sans-serif;
   }
 
 .speed b{
-display:block;
-font-weight: 700;
-font-size: 13px;
-line-height: 20px;
-font-family: Barlow,sans-serif;
+  display:block;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: Barlow,sans-serif;
   }
 
   .speed b:first-of-type{
@@ -487,11 +470,11 @@ font-family: Barlow,sans-serif;
     margin: 0 -5px;
   }
 .how-danceable b{
-display:block;
-font-weight: 700;
-font-size: 13px;
-line-height: 20px;
-font-family: Barlow,sans-serif;
+  display:block;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: Barlow,sans-serif;
   }
 
   .how-danceable b:first-of-type{
@@ -529,7 +512,8 @@ font-family: Barlow,sans-serif;
     justify-content: space-between;
     margin: 0 -5px;
   }
-  .type-of-mood b{
+
+ .type-of-mood b{
 display:block;
 font-weight: 700;
 font-size: 13px;
@@ -551,11 +535,3 @@ font-family: Barlow,sans-serif;
     margin-top:5px;
     justify-content: flex-end;
   }
-
-  @media(max-width:576px){
-    
-  }
-
-
-
-
