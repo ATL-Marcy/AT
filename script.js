@@ -163,7 +163,7 @@ async function getRecommendations(){
   removeAllChildNodes(searchResults) 
   removeAllChildNodes(songsList)
   removeAllChildNodes(recommendations)
-  removeAllChildNodes(search)
+  removeAllChildNodes(recommendations)
   
   
   
