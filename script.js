@@ -7,7 +7,6 @@ const secertClientId = config.trevonSecertClientId
 const amandaClientId= config.amandaClientId
 const amandaSecretClientId = config.amandaSecretClientId
 
-
 //HTML ELEMENTS=====================================
 const search = document.querySelector(".search")
 const searchResults = document.querySelector("#results")
@@ -16,14 +15,6 @@ const inputElement = document.getElementById("input");
 let placeholder = inputElement.placeholder;
 const checkbox = document.querySelector("input[name=toggle]");
 const songsList = document.querySelector(".songs")
-
-
-
-
-
-
-
-
 
 
 localStorage.setItem("base_uri", window.location);
@@ -61,25 +52,10 @@ localStorage.setItem("base_uri", window.location);
    return text;
  };
 
-
- // var userProfileSource = document.getElementById('user-profile-template').innerHTML,
- //     userProfileTemplate = Handlebars.compile(userProfileSource),
- //     userProfilePlaceholder = document.getElementById('user-profile');
-
-
- //     oauthSource = document.getElementById('oauth-template').innerHTML,
- //     oauthTemplate = Handlebars.compile(oauthSource),
- //     oauthPlaceholder = document.getElementById('oauth');
-
-
-
-
    document.getElementById('search-bar').addEventListener('click', function()  {
      const redirect_uri = localStorage.getItem("base_uri"); // Your redirect uri
      // const redirect_uri = `http://127.0.0.1:5500/AT/index.html`; // Your redirect uri
    
-
-
      var state = generateRandomString(16);
 
 
@@ -98,13 +74,6 @@ localStorage.setItem("base_uri", window.location);
      window.location = url;
    }, false);
  })();
-
-
-
-
-//==============================================
-
-
 
 
 //Helper Function for obtaining Spotify DATA=======================
@@ -129,28 +98,6 @@ const fetchFrom = async function (url){
 
 
 //Example Fetch ==============================
-
-
-/*
-async function danceability(){
-
-
- const endpoint = "https://api.spotify.com/v1/recommendations";
- const artists = '6sFIWsNpZYqfjUpaCgueju';
- const danceability = encodeURIComponent('0.9');
-
-
- const dance = await fetchFrom(`${endpoint}?seed_artists=${artists}&target_danceability=${danceability}`)
-
-
- console.log("DANCE:",`${item.name} by ${item.artists[0].name}`);
-
-
-}
-
-
-danceability()
-*/
 
 
 //function to remove all child nodes//==============
@@ -180,10 +127,6 @@ async function dataFetch(){
    console.log("acousticness", acousticness)
   
 }
-
-
-
-
 
 
 async function getRecommendations(){
@@ -241,9 +184,6 @@ search.addEventListener("keyup", (e) => {
  }
 });
 
-
-
-
 const searchUrl = `https://api.spotify.com/v1/search`
 
 
@@ -254,10 +194,6 @@ const paramss = new URLSearchParams({
  type: 'track',
  limit: 10
 });
-
-
-
-
 
 
 //Tracks============================================================
@@ -283,7 +219,6 @@ async function searchTracks (value) {
    img.src = tracktImg
 }
  }
-
 
 //Artists===========================================================
 async function searchArtist(value){
@@ -314,9 +249,6 @@ async function searchArtist(value){
  }
 }
 
-
-
-
 checkbox.addEventListener('change', function() {
  if (checkbox.checked) {
    inputElement.placeholder = "Search By Artist";
@@ -326,11 +258,6 @@ checkbox.addEventListener('change', function() {
    console.log("not checked")
  }
 })
-
-
-
-
-
 
 //===================AUTHORIZATION=============================================
 // curl -X POST "https://accounts.spotify.com/api/token" \

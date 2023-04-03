@@ -2,7 +2,6 @@
   box-sizing:border-box;
 }
 
-
 body{
   font-family: Source Sans Pro,sans-serif;
   background-color: #110915;
@@ -513,12 +512,12 @@ input[type="checkbox"]:checked ~ .switch:after{
     margin: 0 -5px;
   }
 
- .type-of-mood b{
-display:block;
-font-weight: 700;
-font-size: 13px;
-line-height: 20px;
-font-family: Barlow,sans-serif;
+.type-of-mood b{
+  display:block;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 20px;
+  font-family: Barlow,sans-serif;
   }
 
   .type-of-mood b:first-of-type{
@@ -528,7 +527,7 @@ font-family: Barlow,sans-serif;
     color:#ff587f;
   }
 
-  #root{
+#root{
     display:flex;
     display:grid;
     grid-column-gap:30px;
