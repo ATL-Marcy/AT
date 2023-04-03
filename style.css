@@ -336,11 +336,15 @@ a{
    /* ^^^^^^^^^^^^^^^LIST OF SONGS ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
   
-  #slist :hover ,#tracklist :hover, #artsitList:hover {
+  #artsitList:hover {
     background-color:  #7a0f6d;
   }
-  
-
+  #trackList :hover{
+    background-color:  #7a0f6d;
+  }
+  #slist:hover {
+    background-color:  #7a0f6d;
+  }
 
   .show {
     display:block;}

@@ -293,7 +293,7 @@ async function searchTracks (value) {
   const dataTrack = await fetchFrom(searchUrl + `?query=${value}&type=track&offset=0&limit=7`)
  
   removeAllChildNodes(searchResults)
-  for (let i = 0; i < 7; i++){
+  for (let i = 0; i < 5; i++){
     //Variables=================================================================
     const trackUrl = dataTrack.tracks.items[i].album.external_urls.spotify
     const trackName = dataTrack.tracks.items[i].name
@@ -305,7 +305,7 @@ async function searchTracks (value) {
     //Classes================================================================
     img.id = "trackimg"
     list.id  = "trackList"
-    console.log(list)
+   
     //Append============================================================
     searchResults.appendChild(list)
     list.appendChild(img)
