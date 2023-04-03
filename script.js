@@ -314,7 +314,9 @@ async function searchTracks (value) {
     //Assign================================================================================
     anchor.innerText = trackName
     img.src = tracktImg
-    // anchor.href = trackUrl
+    list.addEventListener("click", function(e) {
+      window.open(trackUrl) 
+    });
  }
   
 }
@@ -344,8 +346,10 @@ async function searchArtist(value){
     list.id = "artsitList"
     //Assign================================================================================
     anchor.innerText = artistName
-    // anchor.href = artistUrl
     img.src = artistImg
+       list.addEventListener("click", function(e) {
+      window.open(artistUrl) 
+    });
       
   }
 }
