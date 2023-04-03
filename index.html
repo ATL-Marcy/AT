@@ -11,11 +11,6 @@
 <body>
     <!-- Our main header that is used across all the pages of our website -->
    
-   
-
-
-
-   
     <header id= "header">
       <div id="logo-btn" class="container display flex align-items-center justify-content-between">
         <h1 id= "title">M00DMUSE</a></h1>
@@ -58,7 +53,7 @@
   <hr class="page-divider"/>
 
   <div class="recommendations">
-    <ul class="songs"></ul>
+    <!-- <ul class="songs"></ul> -->
   </div>
   <div class="audio-features"></div>
 
@@ -83,7 +78,12 @@
   // document.getElementsByTagName("li").classList.toggle("show");
 
 }
+function link(){
 
+
+el.classList.toggle('hideme');
+
+}
 function filterFunction() {
   console.log("woah")
   var input, filter, ul, li, a, i;

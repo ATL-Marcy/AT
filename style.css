@@ -127,7 +127,10 @@ body{
 .spotifyicon{
   margin:3px;
 }
-
+a{
+  display: flex;
+  align-items: center;
+}
 
   a:link {
     color:rgb(240, 213, 234);
@@ -135,14 +138,8 @@ body{
     text-decoration: none;
   }
   
-  a:visited {
-    color: rgb(240, 213, 234);
-    background-color: transparent;
-    text-decoration: none;
-  }
-  
+ 
   a:hover {
-   
     background-color: transparent;
     text-decoration: underline;
   }
@@ -152,15 +149,56 @@ body{
     background-color: transparent;
     text-decoration: underline;
   }
-  img {
+
+
+  /*ALL IMAGES ===============================*/
+  #trackimg, #artistimg {
     position:relative;
     margin:4px;
     width:30px;
     height:30px;
     border-radius: 50%;
     float: left;
+    
   }
 
+  #recommendationsImg {
+    width: 80px;
+    height: 80px;
+    display: block;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0 6px 8px -4px rgba(0,0,0,.3);
+    transition: all .3s;
+    background-image: linear-gradient(to bottom right,#ccc,#ddd);
+    position: relative;
+    cursor: pointer;
+    
+  }
+  #playButton{
+    position: absolute;
+    top: 47%;
+    left: 2.5%;
+    opacity: 0;
+    
+  }
+  
+
+  #playButton:hover{
+  
+    width:50px;
+    transform: translateX(-10%)translateY(-50%)scale(.7);
+    opacity: 100;
+    transition: all .3s;
+  }
+
+  /* ^^^^^^^^^^^^^^^^^^^^^^IMAGES^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 .switch{
     background:#4e1467;
     position: relative;
@@ -231,17 +269,15 @@ body{
     line-height: 40px;
     border:none;
     color:#f1cfff;
-     
-    
   }
-  
-  
-  
+
   .dropbtn:hover, .dropbtn:focus {
     background-color: #3e8e41;
   }
   
   #searcher {
+    
+    width: 25em;  
     font-size: 22px;
     line-height: 30px;
     outline: none;
@@ -249,7 +285,6 @@ body{
     background: transparent;
     color: #94478a;
     text-shadow:rgba(153,24,204,.4) ;
-    width: 1210px;
     margin: 0;
     padding: 0 10px 0 0;
     font-family: Barlow,sans-serif;
@@ -260,7 +295,6 @@ body{
     position: relative;
     padding-right: 1px;
     
-    transition: 2s;
     margin-bottom: 10px;
     z-index: 2;
   }
@@ -271,16 +305,17 @@ body{
     
   }
   
-  .dropdown-content {
-    position: absolute;
+ ul{
+  padding:1px ;
+ }
+ 
+  /* =================LIST OF SONGS ==========================*/
+  #trackList,#songInList,#artsitList,#song {
+    
+    display: flex;
     background-color: transparent;
     min-width: 100%;
-    overflow:auto;
-    z-index: 1;
-  }
-
-  ul {
-    overflow: hidden;
+    overflow:hidden;
     appearance: none;
     border: 0 none;
     font-family: Source Sans Pro,sans-serif;
@@ -288,32 +323,60 @@ body{
     cursor: pointer;
     margin-right: 12px;
     color: #a27994;
-    padding-left: 10px;
-    border-left: 1px solid #400d54;
-    padding-right: 0;
+    padding-left: 10px;  
     background-color: transparent;
     transition: background-color .2s;
     list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    padding:10px;
+    padding: 2px;
+    align-items: center;
     
   }
 
   
+   /* ^^^^^^^^^^^^^^^LIST OF SONGS ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
   
-  .dropdown-content :hover {
+  #slist :hover ,#tracklist :hover, #artsitList:hover {
     background-color:  #7a0f6d;
-    
-  
   }
   
+
+
   .show {
     display:block;}
 
-    .red {
-      color:red;}
-  
 
   /* ^^^^^^^^^^^^^^^^^^^DROPBOX STYLE^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+  #mainDiv{
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 6px 10px;
+    text-decoration: none;
+    position: relative;
+  }
+  #mainDiv:hover {
+    background-color: #7a0f6d;
+    cursor: pointer;
+  }
+
+  #centerDiv{
+    display: flex;
+    font-size: 14px;
+    line-height: 18px;
+    height: 18px;
+    margin-bottom: 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #86155e;
+    font-family: Barlow,sans-serif;
+    font-weight: 600;
+    -ms-flex-align: center;
+    align-items: center;
+    white-space: pre;
+
+  }
