@@ -16,10 +16,6 @@ const checkbox = document.querySelector("input[name=toggle]");
 const songsList = document.querySelector(".songs")
 
 
-  
-
-
-
 localStorage.setItem("base_uri", window.location);
 
 //======Obtains parameters from the hash of the URL========
@@ -53,15 +49,6 @@ function getHashParams() {
     }
     return text;
   };
-
-  // var userProfileSource = document.getElementById('user-profile-template').innerHTML,
-  //     userProfileTemplate = Handlebars.compile(userProfileSource),
-  //     userProfilePlaceholder = document.getElementById('user-profile');
-
-  //     oauthSource = document.getElementById('oauth-template').innerHTML,
-  //     oauthTemplate = Handlebars.compile(oauthSource),
-  //     oauthPlaceholder = document.getElementById('oauth');
-
 
     document.getElementById('search-bar').addEventListener('click', function()  {
       const redirect_uri = localStorage.getItem("base_uri"); // Your redirect uri
@@ -111,22 +98,6 @@ const fetchFrom = async function (url){
 
 //Example Fetch ==============================
 
-/*
-async function danceability(){
-
-  const endpoint = "https://api.spotify.com/v1/recommendations";
-  const artists = '6sFIWsNpZYqfjUpaCgueju';
-  const danceability = encodeURIComponent('0.9');
-
-  const dance = await fetchFrom(`${endpoint}?seed_artists=${artists}&target_danceability=${danceability}`)
-
- 
-  console.log("DANCE:",`${item.name} by ${item.artists[0].name}`);
-
-}
-
-danceability()
-*/
 
 //function to remove all child nodes//==============
 function removeAllChildNodes(node) { 
@@ -238,7 +209,6 @@ const paramss = new URLSearchParams({
   limit: 10
 });
 
-
 //Tracks============================================================
 async function searchTracks (value) {
   const dataTrack = await fetchFrom(searchUrl + `?query=${value}&type=track&offset=0&limit=7`)
@@ -259,7 +229,7 @@ async function searchTracks (value) {
     list.appendChild(img)
     //Assign================================================================================
     anchor.innerText = trackName
-    // anchor.href = trackUrl
+    anchor.href = trackUrl
     img.src = tracktImg
  }
   
@@ -286,7 +256,7 @@ async function searchArtist(value){
     list.appendChild(img)
     //Assign================================================================================
     anchor.innerText = artistName
-    // anchor.href = artistUrl
+     anchor.href = artistUrl
     img.src = artistImg
       
   }
@@ -301,8 +271,6 @@ checkbox.addEventListener('change', function() {
     console.log("not checked")
   }
 })
-
-
 
 //===================AUTHORIZATION=============================================
 // curl -X POST "https://accounts.spotify.com/api/token" \
