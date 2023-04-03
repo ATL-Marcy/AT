@@ -90,14 +90,16 @@ body{
 
 
 .bottom{
-  color: wheat;
+  color:#c6a1d1 ;
   padding-top: 1rem!important;
   padding-bottom: 1rem!important;
 }
 .container{
   margin-top: 1.5rem!important;
   margin-bottom: 1.5rem!important;
+  max-width: 1500px;
 }
+
 
 
 hr{
@@ -130,8 +132,6 @@ hr{
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin: 0;
-
 }
 
 
@@ -195,40 +195,50 @@ ul {
   }
 
 .switch{
-    background:#4e1467;
-    position: relative;
-    display: inline-block;
-    border-radius: 20px;
-    margin:0 10px ;
-    height: 20px;
-    width: 40px;
-    cursor:pointer
-  }
+  background:#4e1467;
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  margin:0 10px ;
+  height: 6px;
+  width: 31px;
+  cursor:pointer;
+  top: 8.5px;
+  transition-duration: 3s;
+}
 
-  .switch:after{
-    box-shadow: 0 1px 4px 2px rgb(152,24,204);
-    background: #4f1467;
-    border-radius: 8px;
-    content: ""; 
-    display: block;
-    width:16px;   
-    height: 16px;   
-    position: absolute;
-    left:2.5px;
-    top: 2px;
-  }
-  input[type="checkbox"]{
-    display:none
-  }
-  input[type="checkbox"]:checked ~ .artists,
-  input[type="checkbox"]:not(:checked) ~ .tracks{
-    color:#ffa9e1;
-
-  }
-  input[type="checkbox"]:not(:checked) ~ .switch:after{
-    left:auto;
-    right: 3px;
-  }
+.switch:after{
+  box-shadow: 0 1px 4px 2px rgb(152,24,204);
+  background: rgb(152,24,204);
+  border-radius: 8px;
+  content: ""; 
+  display: block;
+  width:16px;   
+  height: 16px;   
+  position: absolute;
+  left:2.5px;
+  top: -5px;
+  
+  
+}
+input[type="checkbox"]{
+ display:none;
+ 
+}
+input[type="checkbox"]:checked ~ .artists,
+input[type="checkbox"]:not(:checked) ~ .tracks{
+  color:#ffa9e1;
+  
+}
+input[type="checkbox"]:not(:checked) ~ .switch:after{
+  left:12px;
+  transition: all 0.2s linear;
+  right: 0px;
+}
+input[type="checkbox"]:checked ~ .switch:after{
+  transition: all 0.2s linear;
+  
+}
 
   
    

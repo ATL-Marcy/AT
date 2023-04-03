@@ -260,7 +260,7 @@ async function searchTracks (value) {
     list.appendChild(img)
     //Assign================================================================================
     anchor.innerText = trackName
-    // anchor.href = trackUrl
+    anchor.href = trackUrl
     img.src = tracktImg
  }
   
@@ -287,7 +287,7 @@ async function searchArtist(value){
     list.appendChild(img)
     //Assign================================================================================
     anchor.innerText = artistName
-    // anchor.href = artistUrl
+     anchor.href = artistUrl
     img.src = artistImg
       
   }
