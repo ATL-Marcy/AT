@@ -2,17 +2,24 @@
   box-sizing:border-box;
 }
 
+
 body{
   font-family: Source Sans Pro,sans-serif;
   background-color: #110915;
+  margin: 30px;
+  min-height: 100vh;
+  
 }
 
 #title{
   background: linear-gradient(to right, #a11077 20%, #9a08c0 80%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   display:flex;
   align-items: center;
   justify-content: space-between;
-  font-weight: 550; 
+  font-weight: 550;
+  
 }
 
 .mission{
@@ -31,22 +38,21 @@ body{
   margin-bottom: 5px;
 }
 
+
+.bottom{
+  color:#c6a1d1 ;
+  padding-top: 1rem!important;
+  padding-bottom: 1rem!important;
+}
+
 .bottom p {
   margin: 0;
 }
 
-.search{
-  background:transparent;
-  font-size: 20px;
-  line-height: 40px;
-  border:none;
-  color:#f1cfff;
-  padding: 0 10px 0 0;
-  
-}
 .search::placeholder{
   color: #b095bd;
 }
+
 
 .artist{
   font-size: 14px;
@@ -57,9 +63,14 @@ body{
   justify-content: space-between;
 }
 
+
 .play{
   color: rgba(255,169,225,.6);
+
+
 }
+
+
 
 #reset{
   color: #d21f92;
@@ -76,20 +87,15 @@ body{
 
 }
 
-.bottom{
-  color:#c6a1d1 ;
-  padding-top: 1rem!important;
-  padding-bottom: 1rem!important;
-}
+
 .container{
   margin-top: 1.5rem!important;
   margin-bottom: 1.5rem!important;
   max-width: 1500px;
 }
 
-hr{
-  height: 1px;
-}
+
+
 
 .spotify-connect{
   color: black;
@@ -109,40 +115,26 @@ hr{
   transition: box-shadow;
   box-sizing: border-box;
   cursor:pointer
+
 }
+
 
 #logo-btn {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  
+
 }
+
 
 .spotifyicon{
   margin:3px;
 }
-
-ul {
-    overflow: hidden; 
-    flex: 0;
-    appearance: none;
-    border: 0 none;
-    font-family: Source Sans Pro,sans-serif;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 12px;
-    color: #86155e;
-    padding-left: 10px;
-    border-left: 1px solid #400d54;
-    background: transparent;
-    padding-right: 0;
-    background-color: rgba(64,13,84,.6);
-    transition: background-color .2s;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    padding:10px;
-    cursor:pointer
-  }
+a{
+  display: flex;
+  align-items: center;
+}
 
   a:link {
     color:rgb(240, 213, 234);
@@ -150,14 +142,8 @@ ul {
     text-decoration: none;
   }
   
-  a:visited {
-    color: rgb(240, 213, 234);
-    background-color: transparent;
-    text-decoration: none;
-  }
-  
+ 
   a:hover {
-    color: rgb(213, 71, 173);
     background-color: transparent;
     text-decoration: underline;
   }
@@ -167,63 +153,102 @@ ul {
     background-color: transparent;
     text-decoration: underline;
   }
-  img {
+
+
+  /*ALL IMAGES ===============================*/
+  #trackimg, #artistimg {
     position:relative;
     margin:4px;
     width:30px;
     height:30px;
     border-radius: 50%;
     float: left;
+    
   }
 
+  #recommendationsImg {
+    width: 80px;
+    height: 80px;
+    display: block;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: 0 6px 8px -4px rgba(0,0,0,.3);
+    transition: all .3s;
+    background-image: linear-gradient(to bottom right,#ccc,#ddd);
+    position: relative;
+    cursor: pointer;
+    
+  }
+  #playButton{
+    position: absolute;
+    top: 47%;
+    left: 2.5%;
+    opacity: 0;
+    
+  }
+  
+
+  #playButton:hover{
+  
+    width:50px;
+    transform: translateX(-10%)translateY(-50%)scale(.7);
+    opacity: 100;
+    transition: all .3s;
+  }
+
+  /* ^^^^^^^^^^^^^^^^^^^^^^IMAGES^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 .switch{
-  background:#4e1467;
-  position: relative;
-  display: inline-block;
-  border-radius: 20px;
-  margin:0 10px ;
-  height: 6px;
-  width: 31px;
-  cursor:pointer;
-  top: 8.5px;
-  transition-duration: 3s;
-}
+    background:#4e1467;
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    margin:0 10px ;
+    height: 6px;
+    width: 31px;
+    cursor:pointer;
+    top: 8.5px;
+    transition-duration: 3s;
+  }
 
-.switch:after{
-  box-shadow: 0 1px 4px 2px rgb(152,24,204);
-  background: rgb(152,24,204);
-  border-radius: 8px;
-  content: ""; 
-  display: block;
-  width:16px;   
-  height: 16px;   
-  position: absolute;
-  left:2.5px;
-  top: -5px;
-  
-  
-}
-input[type="checkbox"]{
- display:none;
- 
-}
-input[type="checkbox"]:checked ~ .artists,
-input[type="checkbox"]:not(:checked) ~ .tracks{
-  color:#ffa9e1;
-  
-}
-input[type="checkbox"]:not(:checked) ~ .switch:after{
-  left:12px;
-  transition: all 0.2s linear;
-  right: 0px;
-}
-input[type="checkbox"]:checked ~ .switch:after{
-  transition: all 0.2s linear;
-  
-}
-
-  
+  .switch:after{
+    box-shadow: 0 1px 4px 2px rgb(152,24,204);
+    background: rgb(152,24,204);
+    border-radius: 8px;
+    content: ""; 
+    display: block;
+    width:16px;   
+    height: 16px;   
+    position: absolute;
+    left:2.5px;
+    top: -5px;
+    
+    
+  }
+  input[type="checkbox"]{
+   display:none;
    
+  }
+  input[type="checkbox"]:checked ~ .artists,
+  input[type="checkbox"]:not(:checked) ~ .tracks{
+    color:#ffa9e1;
+    
+  }
+  input[type="checkbox"]:not(:checked) ~ .switch:after{
+    left:12px;
+    transition: all 0.2s linear;
+    right: 0px;
+  }
+  input[type="checkbox"]:checked ~ .switch:after{
+    transition: all 0.2s linear;
+    
+  }
+
   .artists,.tracks {
     font-family: Source Sans Pro,sans-serif;
     font-weight: 400;
@@ -236,8 +261,144 @@ input[type="checkbox"]:checked ~ .switch:after{
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
+    border-bottom: 1px solid #86155e;
   }
 
+
+  /* =====================DROPBOX STYLE============================== */
+  
+  .dropbtn{
+    background:transparent;
+    font-size: 20px;
+    line-height: 40px;
+    border:none;
+    color:#f1cfff;
+  }
+
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+  }
+  
+  #searcher {
+    
+    width: 25em;  
+    font-size: 22px;
+    line-height: 30px;
+    outline: none;
+    flex: 1;
+    background: transparent;
+    color: #94478a;
+    text-shadow:rgba(153,24,204,.4) ;
+    margin: 0;
+    padding: 0 10px 0 0;
+    font-family: Barlow,sans-serif;
+  }
+  
+  #searcher:focus {
+    align-items: center;
+    position: relative;
+    padding-right: 1px;
+    
+    margin-bottom: 10px;
+    z-index: 2;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    
+  }
+  
+ ul{
+  padding:1px ;
+ }
+ 
+  /* =================LIST OF SONGS ==========================*/
+  #trackList,#songInList,#artsitList,#song {
+    
+    display: flex;
+    background-color: transparent;
+    width: 900px;
+    overflow:hidden;
+    appearance: none;
+    border: 0 none;
+    font-family: Source Sans Pro,sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 12px;
+    color: #a27994;
+    padding-left: 10px;  
+    background-color: transparent;
+    transition: background-color .2s;
+    list-style-type: none;
+    padding: 2px;
+    align-items: center;
+    
+  }
+
+  
+   /* ^^^^^^^^^^^^^^^LIST OF SONGS ^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+   #trackList:hover{
+     background-color:  #7a0f6d;
+   }
+  
+  #artsitList:hover {
+    background-color:  #7a0f6d;
+  }
+  #slist:hover {
+    background-color:  #7a0f6d;
+  }
+
+  .show {
+    display:block;}
+
+
+  /* ^^^^^^^^^^^^^^^^^^^DROPBOX STYLE^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+ .main{
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 300px;
+  grid-template-columns: 1fr 300px;
+  -ms-grid-columns: minmax(0,1fr) 300px;
+  grid-template-columns: minmax(0,1fr) 300px;
+  grid-column-gap: 30px;
+  margin-top: 5px;
+ }
+  #mainDiv{
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 6px 10px;
+    text-decoration: none;
+    position: relative;
+  }
+  #mainDiv:hover {
+    background-color: #7a0f6d;
+    cursor: pointer;
+  }
+
+  #centerDiv{
+    display: flex;
+    font-size: 14px;
+    line-height: 18px;
+    height: 18px;
+    margin-bottom: 2px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #86155e;
+    font-family: Barlow,sans-serif;
+    font-weight: 600;
+    -ms-flex-align: center;
+    align-items: center;
+    white-space: pre;
+
+  }
+
+    /* vvvvvvvvvvvvvvvvvvvSIDEBAR vvvvvvvvvvvvvvvvvvv*/
   .features-box{
     background-color:hsla(0,0%,100%,.05);
     padding: 20px 10px 10px;
@@ -534,3 +695,4 @@ font-family: Barlow,sans-serif;
     margin-top:5px;
     justify-content: flex-end;
   }
+  /* ===============SIDEBAR ==================*/
